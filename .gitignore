@@ -1,0 +1,5 @@
+project.config.json
+tmp/
+.conductor-kit/
+Thumbs.db
+.DS_Store

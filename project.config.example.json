@@ -1,0 +1,10 @@
+{
+  "project_name": "Example Project",
+  "project_stack": "React + FastAPI + PostgreSQL",
+  "frontend_deploy": "Vercel",
+  "backend_deploy": "Railway",
+  "user_name": "ATu",
+  "assistant_name": "CS",
+  "default_assignee": "AG",
+  "full_stack_doc_path": "conductor/tech-stack.md"
+}
