@@ -31,8 +31,10 @@ Layer 3 — Fragmented Memory (update-knowledge viet vao day):
   docs/memory/03_devops_infra.md          → DevOps/Config
   docs/memory/04_tech_decisions_log.md    → Lich su quyet dinh kien truc
 
-Session State:
-  docs/memory/session_save.md             → Luu state de resume session sau
+Session State (per-agent — khong dung chung):
+  docs/memory/session_save_cs.md          → CS planning/orchestration context
+  conductor/tracks/[id]/SESSION.md        → AG/CD implementation context
+  [DEPRECATED] docs/memory/session_save.md
 ```
 
 **Quy tac**: `update-knowledge` chi viet vao **Layer 3** (`docs/memory/`). KHONG chinh sua CLAUDE.md files (Layer 1, 2).
@@ -97,34 +99,51 @@ Neu track co thay doi status trong session nay, ghi vao `CHANGELOG.md` trong fol
 
 Dong thoi update status trong `conductor/tracks.md`.
 
-### 6. Session Save (Luu trang thai session)
+### 6. Session Save — luu theo agent
 
-Ghi file `docs/memory/session_save.md` voi format:
+**Khong dung `session_save.md` chung nua.** Luu theo PURPOSE:
 
+**CS** → `docs/memory/session_save_cs.md`:
 ```markdown
-# Session Save
-> Saved: YYYY-MM-DD HH:MM
+# Session Save — CS
+> Saved: YYYY-MM-DD
 
 ## Track dang lam
-- Track [ID]: [Ten] — [Status hien tai]
+- Track [ID]: [Ten] — [Status]
 
-## Da hoan thanh trong session nay
-- [Liet ke ngan gon]
+## Hoan thanh trong session nay
+- [x] ...
 
-## Dang do dang
-- [Task/step cu the chua xong]
+## Do dang
+- [ ] ...
 
-## Next Steps
-- [Buoc tiep theo can lam ngay khi resume]
-
-## Context can nho
-- [Bien, state, decision quan trong ma session sau can biet]
+## Next Steps / Key Decisions
+- ...
 ```
 
-**Rule**: File nay bi **overwrite** moi lan save. Chi giu state moi nhat.
+**AG hoac CD** → `conductor/tracks/[track-id]/SESSION.md`:
+```markdown
+# SESSION — [track-id]
+> Last updated: YYYY-MM-DD | Agent: AG
+
+## Status: In Progress
+
+## Done so far
+- [x] ...
+- [ ] ...
+
+## Do dang
+- Chua xong [component], dang o file: ... ~line ...
+
+## Next step khi resume
+1. ...
+```
+
+**Rule**: Overwrite moi lan. Xoa `SESSION.md` khi track complete.
+Update `conductor/state.md` ACTIVE notes khi pause.
 
 ### 7. Maintain Zero-Loop Skill
-- Neu phat hien quy trinh lap hoac loi he thong moi → update `.agent/skills/zero-loop-dev/SKILL.md`
+- Neu phat hien quy trinh lap hoac loi he thong moi → update `.claude/skills/zero-loop-dev/SKILL.md`
 
 ### 8. Final Report
 
@@ -143,7 +162,9 @@ Bao cao cho ATu:
 | `docs/memory/02_backend_guidelines.md` | Backend rules/bugs |
 | `docs/memory/03_devops_infra.md` | DevOps/Config |
 | `docs/memory/04_tech_decisions_log.md` | Lich su quyet dinh kien truc |
-| `docs/memory/session_save.md` | Session state de resume |
+| `docs/memory/session_save_cs.md` | CS planning session (CS ghi) |
+| `conductor/tracks/[id]/SESSION.md` | Track implement session (AG/CD ghi) |
+| `conductor/state.md` | Update ACTIVE notes khi pause |
 | `conductor/tracks.md` | Tien do tracks |
 | `conductor/tracks/<id>/CHANGELOG.md` | Transition ledger per track |
 

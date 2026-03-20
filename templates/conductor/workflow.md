@@ -27,22 +27,28 @@ This file is the canonical workflow reference for the repository.
 ## Session Flow
 
 1. Session start:
-   - Read `docs/memory/MEMORY.md`
+   - `python conductor/status.py` — xem toàn bộ tình hình ngay
+   - Read `conductor/state.md` — ACTIVE track, PIPELINE queue
+   - Read `docs/memory/MEMORY.md` (index)
    - Read `docs/memory/00_active_context.md`
-   - Read `conductor/tracks.md`
-   - Read `docs/memory/session_save.md` if it exists
-2. Planning:
+   - **CS**: Read `docs/memory/session_save_cs.md` nếu tồn tại
+   - **AG/CD**: Read `conductor/tracks/[active-track]/SESSION.md` nếu tồn tại
+2. Planning (CS):
    - Read `PRD.md` / `spec.md`
    - Create or update `IMPLEMENTATION_PLAN.md`
-   - Move track `📅 Planned -> [📅 Planned]`
-3. Development:
-   - When coding starts, move `[📅 Planned] -> [💻 Dev]`
+   - Move track `📅 Planned -> [📅 Planned]` trong `tracks.md`
+   - Update `conductor/state.md` PIPELINE khi plan xong
+3. Development (AG hoặc CD):
+   - Move `[📅 Planned] -> [💻 Dev]`; update `state.md` ACTIVE
    - Write `CHANGELOG.md` whenever status changes
+   - Khi pause: ghi `conductor/tracks/[id]/SESSION.md`
 4. QA:
    - After verification and smoke test, move `[💻 Dev] -> [🧪 QA]`
 5. Release and wrap-up:
-   - After release and session wrap-up, move `[🧪 QA] -> [✅ Completed]`
-   - Save learnings and latest session state into `docs/memory/`
+   - After release, move `[🧪 QA] -> [✅ Completed]`
+   - `python conductor/status.py done` — promote PIPELINE[0] lên ACTIVE
+   - Save learnings vào `docs/memory/`
+   - Xóa `SESSION.md` của track vừa complete
 
 ## Memory Rules
 

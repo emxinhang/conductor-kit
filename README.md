@@ -1,27 +1,30 @@
-# Conductor Kit
+# Conductor Kit — v2
 
-Portable workflow pack for installing the same `conductor`, `docs`, `.agent`, `.claude`, and `.codex` conventions into other repositories.
+Portable workflow pack for installing the same `conductor`, `docs`, `.agents`, `.claude`, and `.codex` conventions into other repositories.
 
-## Origin
-
-This kit was originally inspired by, and partially adapted from, the upstream Conductor project:
-
-- `gemini-cli-extensions/conductor`
-- https://github.com/gemini-cli-extensions/conductor
-
-This repo is not a Gemini CLI extension. It is a portable workflow kit adapted for multi-agent local use across `.agent`, `.claude`, and `.codex`.
+Multi-agent support: **Claude** (CS) · **Gemini** (AG) · **Codex** (CD) — run in parallel, share one conductor runtime.
 
 ## Overview
 
-This repo is the reusable distribution layer for the Conductor workflow.
+This kit packages the Conductor workflow runtime + skills for 3 CLI tools in a single portable git repo.
 
-It packages:
-- `conductor/workflow.md` as the canonical workflow reference
-- `docs/` and `docs/memory/` as the shared documentation and memory roots
-- Core workflow wiring for `.agent`, `.claude`, and `.codex`
-- A PowerShell installer that copies templates into another repository
+**Conductor runtime** (shared state, installed into `conductor/`):
+- `workflow.md` — canonical workflow reference
+- `state.md` — ACTIVE / PIPELINE / DONE state machine
+- `tracks.md` — track status master list
+- `status.py` — CLI dashboard (`python conductor/status.py`)
+- `CONDUCTOR_GUIDE.md` — usage guide
 
-This is intentionally a **core pack**, not the full TMS engineering skill library.
+**Agent skills** (installed into each CLI's folder):
+- `.agents/skills/` — Gemini AG: `atu-conductor`, `atu-new-conversation`, `atu-update-knowledge`, `atu-handoff`
+- `.claude/skills/` — Claude CS: `conductor`, `new-conversation`, `update-knowledge`, `handoff`
+- `.codex/skills/` — Codex CD: `conductor`, `new-conversation`, `update-knowledge`, `handoff`
+
+**Project memory** (installed into `docs/memory/`):
+- `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`
+- `03_devops_infra.md`, `04_tech_decisions_log.md`, `session_save_cs.md`
+
+This is intentionally a **core pack**, not the full engineering skill library.
 
 ## Recommended Git Model
 
@@ -99,24 +102,29 @@ Recommended ignore in consumer repos:
 .conductor-kit/backups/
 ```
 
-## Included In v1
+## Included In v2
 
-- `conductor/workflow.md`
-- `conductor/tracks.md`
-- `docs/WORKFLOW_STANDARD.md`
-- `docs/project_memory.md`
-- `docs/memory/*`
-- `.agent/workflows/new-conversation.md`
-- `.agent/workflows/update-knowleadge.md`
-- `.agent/workflows/atu-style.md`
-- `.claude/CLAUDE.md`
-- `.claude/skills/{conductor,new-conversation,update-knowledge}`
-- `.codex/skills/{conductor,new-conversation,update-knowledge}`
+**conductor/**
+- `workflow.md`, `state.md`, `tracks.md`, `status.py`, `CONDUCTOR_GUIDE.md`
 
-## Not Included In v1
+**docs/memory/**
+- `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`
+- `03_devops_infra.md`, `04_tech_decisions_log.md`, `session_save_cs.md`
 
-- full TMS skill libraries
-- project-specific tracks
+**.agents/**
+- `workflows/atu-style.md`
+- `skills/{atu-conductor,atu-new-conversation,atu-update-knowledge,atu-handoff}`
+
+**.claude/skills/**
+- `{conductor,new-conversation,update-knowledge,handoff}`
+
+**.codex/skills/**
+- `{conductor,new-conversation,update-knowledge,handoff}`
+
+## Not Included
+
+- full engineering skill libraries (zero-loop-dev, frontend-standard, etc.)
+- project-specific tracks and specs
 - project-specific memory content
 - project-specific automation scripts
 
@@ -137,30 +145,17 @@ powershell -ExecutionPolicy Bypass -File .\sync-from-canonical.ps1 -SourceRoot <
 
 ---
 
-# Conductor Kit
+# Conductor Kit — v2 (Tiếng Việt)
 
-Bộ workflow portable để cài cùng một chuẩn `conductor`, `docs`, `.agent`, `.claude`, và `.codex` sang các repository khác.
+Bộ workflow portable để cài cùng một chuẩn `conductor`, `docs`, `.agents`, `.claude`, và `.codex` sang các repository khác.
 
-## Nguồn Gốc
-
-Bộ kit này ban đầu được lấy cảm hứng và thích nghi một phần từ upstream Conductor:
-
-- `gemini-cli-extensions/conductor`
-- https://github.com/gemini-cli-extensions/conductor
-
-Repo này không phải Gemini CLI extension. Nó là bộ workflow portable đã được chỉnh lại để dùng cục bộ cho nhiều agent: `.agent`, `.claude`, và `.codex`.
+Hỗ trợ 3 CLI song song: **Claude** (CS) · **Gemini AG** · **Codex** (CD) — dùng chung một conductor runtime.
 
 ## Tổng Quan
 
-Repo này là lớp phân phối dùng lại của workflow Conductor.
+Kit này đóng gói conductor runtime + skills cho 3 CLI tools trong 1 git repo portable.
 
-Nó đóng gói:
-- `conductor/workflow.md` làm workflow reference canonical
-- `docs/` và `docs/memory/` làm gốc tài liệu và memory dùng chung
-- wiring cốt lõi cho `.agent`, `.claude`, và `.codex`
-- một installer PowerShell để copy template sang repo khác
-
-Repo này chủ ý chỉ là **core pack**, không phải toàn bộ thư viện skill của TMS.
+Repo này chủ ý chỉ là **core pack**, không phải toàn bộ thư viện skill của dự án.
 
 ## Mô Hình Git Nên Dùng
 

@@ -28,8 +28,13 @@ Fragmented Memory (doc theo Context Profile):
   docs/memory/03_devops_infra.md          → DevOps/Config
   docs/memory/04_tech_decisions_log.md    → Lich su quyet dinh kien truc
 
-Session State:
-  docs/memory/session_save.md             → State tu session truoc (neu co)
+Session State (per-agent — khong dung chung):
+  docs/memory/session_save_cs.md          → CS planning/orchestration context
+  conductor/tracks/[id]/SESSION.md        → AG/CD implementation context (agent-agnostic)
+
+Conductor State (shared — moi agent doc truoc):
+  conductor/state.md                      → ACTIVE track, PIPELINE queue, DONE recent
+  [DEPRECATED] docs/memory/session_save.md → Khong dung nua
 ```
 
 ## Quy trinh thuc hien
@@ -62,21 +67,26 @@ Neu ATu de cap keyword cu the (ten module, ten bug, pattern):
 - Chi doc phan relevant thay vi load ca file 49KB
 - Vi du: ATu noi "fix timezone bug" → grep `timezone` trong `02_backend_guidelines.md` → doc dung section do
 
-### 4. Load Session State (Save/Load)
+### 4. Load Conductor State + Session
 
-Kiem tra file `docs/memory/session_save.md`:
-- **Neu ton tai**: Doc va bao ATu:
-  > "Em load duoc session save tu lan truoc: [tom tat]. Anh muon tiep tuc tu day khong?"
-- **Neu khong ton tai**: Bo qua, tiep tuc binh thuong
+**Buoc 4a — Shared state (moi agent doc truoc):**
+- Doc `conductor/state.md` → biet ACTIVE track, PIPELINE queue
+- Hoac chay: `python conductor/status.py` (nhanh hon)
+
+**Buoc 4b — Session save theo agent:**
+- **CS**: Doc `docs/memory/session_save_cs.md`
+- **AG hoac CD**: Doc `conductor/tracks/[active-track]/SESSION.md`
+- Neu ton tai → bao ATu: *"Em load duoc session tu lan truoc: [tom tat]. Tiep tuc khong?"*
+- Neu khong ton tai → bo qua, tiep tuc binh thuong
 
 ### 5. Load AG Style (Nap quy chuan giao tiep)
 - Doc `.agent/workflows/atu-style.md`
 - Tuan thu cac quy tac ve Ngon ngu (Thinking & Planning bang Tieng Viet)
 
 ### 6. Check Conductor (Kiem tra tien do)
-- Doc `conductor/tracks.md`
-- Xac dinh Track dang Active (💻 Dev) hoac Track tiep theo (📅 Planned)
-- Kiem tra **CHANGELOG.md** trong track folder neu track dang do (xem transition history)
+- `conductor/state.md` da co ACTIVE + PIPELINE — dung luon
+- Doc `conductor/tracks.md` neu can full list
+- Kiem tra **CHANGELOG.md** trong track folder neu track dang do
 
 ### 7. Status Report & Ready
 
@@ -99,9 +109,11 @@ Bao cao cho ATu:
 | `docs/memory/02_backend_guidelines.md` | ❌ Theo profile | Backend rules/bugs |
 | `docs/memory/03_devops_infra.md` | ❌ Theo profile | DevOps/Config |
 | `docs/memory/04_tech_decisions_log.md` | ❌ Theo profile | Lich su quyet dinh |
-| `docs/memory/session_save.md` | ❌ Neu ton tai | State session truoc |
+| `conductor/state.md` | ❌ Luon doc | ACTIVE track, PIPELINE queue |
+| `docs/memory/session_save_cs.md` | ❌ CS only | CS planning session |
+| `conductor/tracks/[id]/SESSION.md` | ❌ AG/CD | Track implementation session |
 | `.agent/workflows/atu-style.md` | ❌ Manual | Quy chuan giao tiep |
-| `conductor/tracks.md` | ❌ Manual | Tien do tracks |
+| `conductor/tracks.md` | ❌ Khi can | Full track list |
 
 ## Vi du output
 
