@@ -1,4 +1,4 @@
-# Conductor Kit — v2
+# Conductor Kit — v3
 
 Portable workflow pack for installing the same `conductor`, `docs`, `.agents`, `.claude`, and `.codex` conventions into other repositories.
 
