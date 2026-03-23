@@ -1,39 +1,145 @@
 {
-  "version": "2.0.0",
+  "version": "3.0.0",
   "files": [
-    { "template": "templates/conductor/workflow.md",        "target": "conductor/workflow.md",        "render": false },
-    { "template": "templates/conductor/CONDUCTOR_GUIDE.md", "target": "conductor/CONDUCTOR_GUIDE.md", "render": false },
-    { "template": "templates/conductor/status.py",          "target": "conductor/status.py",          "render": false },
-    { "template": "templates/conductor/state.md",           "target": "conductor/state.md",           "render": true  },
-    { "template": "templates/conductor/tracks.md",          "target": "conductor/tracks.md",          "render": true  },
-
-    { "template": "templates/conductor/code_styleguides/general.md",    "target": "conductor/code_styleguides/general.md",    "render": false },
-    { "template": "templates/conductor/code_styleguides/python.md",     "target": "conductor/code_styleguides/python.md",     "render": false },
-    { "template": "templates/conductor/code_styleguides/typescript.md", "target": "conductor/code_styleguides/typescript.md", "render": false },
-
-    { "template": "templates/docs/memory/MEMORY.md",               "target": "docs/memory/MEMORY.md",               "render": false },
-    { "template": "templates/docs/memory/00_active_context.md",    "target": "docs/memory/00_active_context.md",    "render": true  },
-    { "template": "templates/docs/memory/01_frontend_guidelines.md","target": "docs/memory/01_frontend_guidelines.md","render": true  },
-    { "template": "templates/docs/memory/02_backend_guidelines.md", "target": "docs/memory/02_backend_guidelines.md", "render": true  },
-    { "template": "templates/docs/memory/03_devops_infra.md",       "target": "docs/memory/03_devops_infra.md",       "render": true  },
-    { "template": "templates/docs/memory/04_tech_decisions_log.md", "target": "docs/memory/04_tech_decisions_log.md", "render": true  },
-    { "template": "templates/docs/memory/session_save_cs.md",       "target": "docs/memory/session_save_cs.md",       "render": true  },
-
-    { "template": "templates/.agents/workflows/atu-style.md",      "target": ".agents/workflows/atu-style.md",      "render": true  },
-
-    { "template": "templates/.agents/skills/atu-conductor/SKILL.md",        "target": ".agents/skills/atu-conductor/SKILL.md",        "render": false },
-    { "template": "templates/.agents/skills/atu-new-conversation/SKILL.md", "target": ".agents/skills/atu-new-conversation/SKILL.md", "render": false },
-    { "template": "templates/.agents/skills/atu-update-knowledge/SKILL.md", "target": ".agents/skills/atu-update-knowledge/SKILL.md", "render": false },
-    { "template": "templates/.agents/skills/atu-handoff/SKILL.md",          "target": ".agents/skills/atu-handoff/SKILL.md",          "render": false },
-
-    { "template": "templates/.claude/skills/conductor/SKILL.md",        "target": ".claude/skills/conductor/SKILL.md",        "render": false },
-    { "template": "templates/.claude/skills/new-conversation/SKILL.md", "target": ".claude/skills/new-conversation/SKILL.md", "render": false },
-    { "template": "templates/.claude/skills/update-knowledge/SKILL.md", "target": ".claude/skills/update-knowledge/SKILL.md", "render": false },
-    { "template": "templates/.claude/skills/handoff/SKILL.md",          "target": ".claude/skills/handoff/SKILL.md",          "render": false },
-
-    { "template": "templates/.codex/skills/conductor/SKILL.md",        "target": ".codex/skills/conductor/SKILL.md",        "render": false },
-    { "template": "templates/.codex/skills/new-conversation/SKILL.md", "target": ".codex/skills/new-conversation/SKILL.md", "render": false },
-    { "template": "templates/.codex/skills/update-knowledge/SKILL.md", "target": ".codex/skills/update-knowledge/SKILL.md", "render": false },
-    { "template": "templates/.codex/skills/handoff/SKILL.md",          "target": ".codex/skills/handoff/SKILL.md",          "render": false }
+    {
+      "template": "templates/conductor/workflow.md",
+      "target": "conductor/workflow.md",
+      "render": false
+    },
+    {
+      "template": "templates/conductor/CONDUCTOR_GUIDE.md",
+      "target": "conductor/CONDUCTOR_GUIDE.md",
+      "render": false
+    },
+    {
+      "template": "templates/conductor/status.py",
+      "target": "conductor/status.py",
+      "render": false
+    },
+    {
+      "template": "templates/conductor/state.md",
+      "target": "conductor/state.md",
+      "render": true
+    },
+    {
+      "template": "templates/conductor/tracks.md",
+      "target": "conductor/tracks.md",
+      "render": true
+    },
+    {
+      "template": "templates/conductor/code_styleguides/general.md",
+      "target": "conductor/code_styleguides/general.md",
+      "render": false
+    },
+    {
+      "template": "templates/conductor/code_styleguides/python.md",
+      "target": "conductor/code_styleguides/python.md",
+      "render": false
+    },
+    {
+      "template": "templates/conductor/code_styleguides/typescript.md",
+      "target": "conductor/code_styleguides/typescript.md",
+      "render": false
+    },
+    {
+      "template": "templates/docs/memory/MEMORY.md",
+      "target": "docs/memory/MEMORY.md",
+      "render": false
+    },
+    {
+      "template": "templates/docs/memory/00_active_context.md",
+      "target": "docs/memory/00_active_context.md",
+      "render": true
+    },
+    {
+      "template": "templates/docs/memory/01_frontend_guidelines.md",
+      "target": "docs/memory/01_frontend_guidelines.md",
+      "render": true
+    },
+    {
+      "template": "templates/docs/memory/02_backend_guidelines.md",
+      "target": "docs/memory/02_backend_guidelines.md",
+      "render": true
+    },
+    {
+      "template": "templates/docs/memory/03_devops_infra.md",
+      "target": "docs/memory/03_devops_infra.md",
+      "render": true
+    },
+    {
+      "template": "templates/docs/memory/04_tech_decisions_log.md",
+      "target": "docs/memory/04_tech_decisions_log.md",
+      "render": true
+    },
+    {
+      "template": "templates/docs/memory/session_save_cs.md",
+      "target": "docs/memory/session_save_cs.md",
+      "render": true
+    },
+    {
+      "template": "templates/.agents/workflows/atu-style.md",
+      "target": ".agents/workflows/atu-style.md",
+      "render": true
+    },
+    {
+      "template": "templates/.agents/skills/atu-conductor/SKILL.md",
+      "target": ".agents/skills/atu-conductor/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/atu-new-conversation/SKILL.md",
+      "target": ".agents/skills/atu-new-conversation/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/atu-update-knowledge/SKILL.md",
+      "target": ".agents/skills/atu-update-knowledge/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/atu-handoff/SKILL.md",
+      "target": ".agents/skills/atu-handoff/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/conductor/SKILL.md",
+      "target": ".claude/skills/conductor/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/new-conversation/SKILL.md",
+      "target": ".claude/skills/new-conversation/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/update-knowledge/SKILL.md",
+      "target": ".claude/skills/update-knowledge/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/handoff/SKILL.md",
+      "target": ".claude/skills/handoff/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/conductor/SKILL.md",
+      "target": ".codex/skills/conductor/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/new-conversation/SKILL.md",
+      "target": ".codex/skills/new-conversation/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/update-knowledge/SKILL.md",
+      "target": ".codex/skills/update-knowledge/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/handoff/SKILL.md",
+      "target": ".codex/skills/handoff/SKILL.md",
+      "render": false
+    }
   ]
 }
