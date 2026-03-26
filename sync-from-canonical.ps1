@@ -20,6 +20,11 @@ $syncMap = @(
     @{ Source = "conductor/status.py";          Target = "templates/conductor/status.py" },
     @{ Source = "conductor/state.md";           Target = "templates/conductor/state.md" },
     @{ Source = "conductor/tracks.md";          Target = "templates/conductor/tracks.md" },
+    @{ Source = "conductor/constitution.md";    Target = "templates/conductor/constitution.md" },
+
+    # --- conductor track-templates ---
+    @{ Source = "conductor/track-templates/SPEC_TEMPLATE.md";  Target = "templates/conductor/track-templates/SPEC_TEMPLATE.md" },
+    @{ Source = "conductor/track-templates/TASKS_TEMPLATE.md"; Target = "templates/conductor/track-templates/TASKS_TEMPLATE.md" },
 
     # --- docs/memory ---
     @{ Source = "docs/memory/MEMORY.md";               Target = "templates/docs/memory/MEMORY.md" },

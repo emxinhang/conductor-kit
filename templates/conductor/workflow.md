@@ -18,11 +18,32 @@ This file is the canonical workflow reference for the repository.
 
 `📅 Planned -> [📅 Planned] -> [💻 Dev] -> [🧪 QA] -> [✅ Completed]`
 
-- `📅 Planned`: da co PRD/spec
-- `[📅 Planned]`: da co `IMPLEMENTATION_PLAN.md`
+- `📅 Planned`: da co PRD/spec (+ spec.md structured)
+- `[📅 Planned]`: da co `IMPLEMENTATION_PLAN.md` + `tasks.md`
 - `[💻 Dev]`: dang code
 - `[🧪 QA]`: dang verify, smoke test, handoff
 - `[✅ Completed]`: da release va wrap-up
+
+## Track Artifacts
+
+Each track folder `conductor/tracks/<id>/` should contain:
+
+| File | Created by | Required |
+|------|-----------|---------|
+| `PRD.md` | `/brainstorm-track` | Yes |
+| `spec.md` | `/brainstorm-track` | Yes — use `conductor/track-templates/SPEC_TEMPLATE.md` |
+| `IMPLEMENTATION_PLAN.md` | `/planner-track` | Yes |
+| `tasks.md` | `/planner-track` | Yes — use `conductor/track-templates/TASKS_TEMPLATE.md` |
+| `CHANGELOG.md` | auto via `status.py transition` | Yes |
+| `SESSION.md` | AG/CD on pause | When paused |
+
+## Constitution Gate
+
+`conductor/constitution.md` contains non-negotiable architectural invariants.
+
+- `/brainstorm-track` checks constitution before finalizing spec.md
+- `/planner-track` checks constitution before approving IMPLEMENTATION_PLAN.md
+- If plan violates constitution → flag to user, do not proceed
 
 ## Session Flow
 
@@ -56,6 +77,23 @@ This file is the canonical workflow reference for the repository.
 - Store learnings only in `docs/memory/`
 - Use `docs/memory/session_save.md` as the resumable session checkpoint
 - Prune low-value memory when files become too large
+
+## Auto-Update Board (status.py transition)
+
+Mỗi workflow transition phải chạy lệnh atomic sau — cập nhật đồng thời `tracks.md` + `state.md` + `CHANGELOG.md`:
+
+```bash
+python conductor/status.py transition <track-id> <phase> [agent] [note]
+```
+
+| Phase | Trigger | Agent |
+|-------|---------|-------|
+| `planned` | `/planner-track` hoàn thành | CS |
+| `dev` | `/handoff` bắt đầu | AG/CD |
+| `qa` | Backend verify pass (zero-loop-dev) | AG/CD |
+| `done` | `/deploy-track` smoke test pass | AG/CS |
+
+Sau khi `done`, luôn chạy thêm `python conductor/status.py done` để promote PIPELINE → ACTIVE.
 
 ## Ownership
 
