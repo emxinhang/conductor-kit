@@ -1,5 +1,5 @@
 {
-  "version": "3.0.0",
+  "version": "3.1.0",
   "files": [
     {
       "template": "templates/conductor/workflow.md",
@@ -102,6 +102,36 @@
       "render": false
     },
     {
+      "template": "templates/.agents/skills/brainstorm-track/SKILL.md",
+      "target": ".agents/skills/brainstorm-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/planner-track/SKILL.md",
+      "target": ".agents/skills/planner-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/module-workflow/SKILL.md",
+      "target": ".agents/skills/module-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/module-workflow/scripts/init_track.py",
+      "target": ".agents/skills/module-workflow/scripts/init_track.py",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/refactor-workflow/SKILL.md",
+      "target": ".agents/skills/refactor-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/refactor-workflow/scripts/init_refactor_track.py",
+      "target": ".agents/skills/refactor-workflow/scripts/init_refactor_track.py",
+      "render": false
+    },
+    {
       "template": "templates/.claude/skills/conductor/SKILL.md",
       "target": ".claude/skills/conductor/SKILL.md",
       "render": false
@@ -122,6 +152,36 @@
       "render": false
     },
     {
+      "template": "templates/.claude/skills/brainstorm-track/SKILL.md",
+      "target": ".claude/skills/brainstorm-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/planner-track/SKILL.md",
+      "target": ".claude/skills/planner-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/module-workflow/SKILL.md",
+      "target": ".claude/skills/module-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/module-workflow/scripts/init_track.py",
+      "target": ".claude/skills/module-workflow/scripts/init_track.py",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/refactor-workflow/SKILL.md",
+      "target": ".claude/skills/refactor-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/refactor-workflow/scripts/init_refactor_track.py",
+      "target": ".claude/skills/refactor-workflow/scripts/init_refactor_track.py",
+      "render": false
+    },
+    {
       "template": "templates/.codex/skills/conductor/SKILL.md",
       "target": ".codex/skills/conductor/SKILL.md",
       "render": false
@@ -139,6 +199,26 @@
     {
       "template": "templates/.codex/skills/handoff/SKILL.md",
       "target": ".codex/skills/handoff/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/brainstorm-track/SKILL.md",
+      "target": ".codex/skills/brainstorm-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/planner-track/SKILL.md",
+      "target": ".codex/skills/planner-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/module-workflow/SKILL.md",
+      "target": ".codex/skills/module-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/refactor-workflow/SKILL.md",
+      "target": ".codex/skills/refactor-workflow/SKILL.md",
       "render": false
     }
   ]

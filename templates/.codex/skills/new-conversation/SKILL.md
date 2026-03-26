@@ -118,7 +118,7 @@ Bao cao cho ATu:
 ## Vi du output
 
 ```
-Em da nap context du an TMS-2026:
+Em da nap context du an [PROJECT_NAME]:
 
 **Profile**: backend
 **Trang thai**: Dang lam Track 102 - Booking Core Conversion

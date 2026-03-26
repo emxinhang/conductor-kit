@@ -1,4 +1,4 @@
-# Conductor Kit — v3
+# Conductor Kit — v3.1
 
 Portable workflow pack for installing the same `conductor`, `docs`, `.agents`, `.claude`, and `.codex` conventions into other repositories.
 
@@ -16,9 +16,9 @@ This kit packages the Conductor workflow runtime + skills for 3 CLI tools in a s
 - `CONDUCTOR_GUIDE.md` — usage guide
 
 **Agent skills** (installed into each CLI's folder):
-- `.agents/skills/` — Gemini AG: `atu-conductor`, `atu-new-conversation`, `atu-update-knowledge`, `atu-handoff`
-- `.claude/skills/` — Claude CS: `conductor`, `new-conversation`, `update-knowledge`, `handoff`
-- `.codex/skills/` — Codex CD: `conductor`, `new-conversation`, `update-knowledge`, `handoff`
+- `.agents/skills/` — Gemini AG: `atu-conductor`, `atu-new-conversation`, `atu-update-knowledge`, `atu-handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`
+- `.claude/skills/` — Claude CS: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`
+- `.codex/skills/` — Codex CD: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`
 
 **Project memory** (installed into `docs/memory/`):
 - `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`
@@ -102,7 +102,7 @@ Recommended ignore in consumer repos:
 .conductor-kit/backups/
 ```
 
-## Included In v2
+## Included In v3.1
 
 **conductor/**
 - `workflow.md`, `state.md`, `tracks.md`, `status.py`, `CONDUCTOR_GUIDE.md`
@@ -114,12 +114,15 @@ Recommended ignore in consumer repos:
 **.agents/**
 - `workflows/atu-style.md`
 - `skills/{atu-conductor,atu-new-conversation,atu-update-knowledge,atu-handoff}`
+- `skills/{brainstorm-track,planner-track,module-workflow,refactor-workflow}` *(new in v3.1)*
 
 **.claude/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
+- `{brainstorm-track,planner-track,module-workflow,refactor-workflow}` *(new in v3.1)*
 
 **.codex/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
+- `{brainstorm-track,planner-track,module-workflow,refactor-workflow}` *(new in v3.1)*
 
 ## Not Included
 

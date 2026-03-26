@@ -24,10 +24,10 @@ Xác định lại các task đã hoàn thành và xem xét:
 Ghi vào các file tương ứng (00_active_context, 01_frontend_guidelines, 02_backend_guidelines, 03_devops_infra, 04_tech_decisions_log).
 
 ### 4. Quản lý trạng thái Track & Conductor
-Nếu có sự thay đổi về trạng thái (status):
-- Ghi vào `CHANGELOG.md` trong thư mục của track đó.
-- Cập nhật trạng thái trong `conductor/tracks.md`.
-- **Cập nhật `conductor/state.md`**: Khi xong plan (thêm vào PIPELINE) hoặc xong implement (dùng `status.py done`).
+Nếu có sự thay đổi về trạng thái (status) của bất kỳ track nào:
+- **Bắt buộc**: Sử dụng lệnh `python conductor/status.py transition <id> <phase> <agent> "<note>"` để cập nhật đồng bộ **4 nơi**: `tracks.md`, `state.md`, `CHANGELOG.md` và `docs/memory/00_active_context.md`.
+- **Tuyệt đối không sửa tay** các trạng thái track trong các file này (đặc biệt là cột Status trong `tracks.md` và label trong `00_active_context.md`) để tránh sai lệch metadata.
+- **Cập nhật `conductor/state.md`**: Khi xong plan (thêm vào PIPELINE) hoặc xong implement (chuyển sang QA, dùng `status.py transition` với phase tương ứng).
 
 ### 5. Lưu trạng thái Session (Session Save)
 Lưu theo agent — KHÔNG dùng `session_save.md` chung nữa:

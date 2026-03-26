@@ -25,7 +25,7 @@ Xác định **profile** dựa trên yêu cầu của ATu hoặc track đang act
 ### 3. Load Conductor State + Session (QUAN TRỌNG)
 
 **Bước 3a — Đọc shared state:**
-- Đọc `conductor/state.md` → biết ACTIVE track, PIPELINE queue.
+- Đọc `conductor/state.md` (hoặc `.agents/conductor/state.md`) → biết ACTIVE track, PIPELINE queue.
 - Đây là nguồn truth duy nhất về "đang làm gì".
 
 **Bước 3b — Load session save theo agent:**

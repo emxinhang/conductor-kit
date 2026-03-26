@@ -98,8 +98,8 @@ Neu track co thay doi status trong session nay, ghi vao `CHANGELOG.md` trong fol
 ```
 
 Dong thoi:
-- Update status trong `conductor/tracks.md`.
-- **Cap nhat `conductor/state.md`**: Khi xong plan (them vao PIPELINE) hoac xong implement (dung `status.py done`).
+- **Bat buoc**: Dung lenh `python conductor/status.py transition <id> <phase> <agent> "<note>"` de cap nhat dong bo 3 noi: `tracks.md`, `state.md`, va `CHANGELOG.md`.
+- Tuyet doi khong sua tay cac file trang thai nay tru truong hop bat kha khang de tranh sai lech metadata.
 
 ### 6. Session Save — luu theo agent
 

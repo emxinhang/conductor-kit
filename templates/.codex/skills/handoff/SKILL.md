@@ -111,7 +111,7 @@ Cập nhật `IMPLEMENTATION_PLAN.md` + `CHANGELOG.md` với transition mới.
 
 ### Constraints
 - [Constraint từ backend/frontend guidelines liên quan]
-- [TMS-2026 gotcha nếu có]
+- [Project-specific gotcha nếu có]
 
 ### Acceptance Criteria
 - [ ] [Tiêu chí cụ thể, có thể test được]
