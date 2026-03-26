@@ -1,4 +1,4 @@
-# Conductor Kit — v3.1
+# Conductor Kit — v3.2
 
 Portable workflow pack for installing the same `conductor`, `docs`, `.agents`, `.claude`, and `.codex` conventions into other repositories.
 
@@ -14,6 +14,9 @@ This kit packages the Conductor workflow runtime + skills for 3 CLI tools in a s
 - `tracks.md` — track status master list
 - `status.py` — CLI dashboard (`python conductor/status.py`)
 - `CONDUCTOR_GUIDE.md` — usage guide
+- `constitution.md` — non-negotiable architectural invariants (project-specific, fill in on install)
+- `track-templates/SPEC_TEMPLATE.md` — spec template for `/brainstorm-track`
+- `track-templates/TASKS_TEMPLATE.md` — task checklist template for `/planner-track`
 
 **Agent skills** (installed into each CLI's folder):
 - `.agents/skills/` — Gemini AG: `atu-conductor`, `atu-new-conversation`, `atu-update-knowledge`, `atu-handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`
@@ -102,10 +105,12 @@ Recommended ignore in consumer repos:
 .conductor-kit/backups/
 ```
 
-## Included In v3.1
+## Included In v3.2
 
 **conductor/**
 - `workflow.md`, `state.md`, `tracks.md`, `status.py`, `CONDUCTOR_GUIDE.md`
+- `constitution.md` *(new in v3.2)*
+- `track-templates/SPEC_TEMPLATE.md`, `track-templates/TASKS_TEMPLATE.md` *(new in v3.2)*
 
 **docs/memory/**
 - `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`
@@ -114,15 +119,15 @@ Recommended ignore in consumer repos:
 **.agents/**
 - `workflows/atu-style.md`
 - `skills/{atu-conductor,atu-new-conversation,atu-update-knowledge,atu-handoff}`
-- `skills/{brainstorm-track,planner-track,module-workflow,refactor-workflow}` *(new in v3.1)*
+- `skills/{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
 
 **.claude/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
-- `{brainstorm-track,planner-track,module-workflow,refactor-workflow}` *(new in v3.1)*
+- `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
 
 **.codex/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
-- `{brainstorm-track,planner-track,module-workflow,refactor-workflow}` *(new in v3.1)*
+- `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
 
 ## Not Included
 
@@ -148,7 +153,7 @@ powershell -ExecutionPolicy Bypass -File .\sync-from-canonical.ps1 -SourceRoot <
 
 ---
 
-# Conductor Kit — v2 (Tiếng Việt)
+# Conductor Kit — v3.2 (Tiếng Việt)
 
 Bộ workflow portable để cài cùng một chuẩn `conductor`, `docs`, `.agents`, `.claude`, và `.codex` sang các repository khác.
 
@@ -236,21 +241,22 @@ Nên ignore trong repo đích:
 .conductor-kit/backups/
 ```
 
-## Phạm Vi Có Trong v1
+## Phạm Vi Có Trong v3.2
 
-- `conductor/workflow.md`
-- `conductor/tracks.md`
-- `docs/WORKFLOW_STANDARD.md`
-- `docs/project_memory.md`
-- `docs/memory/*`
-- `.agent/workflows/new-conversation.md`
-- `.agent/workflows/update-knowleadge.md`
-- `.agent/workflows/atu-style.md`
-- `.claude/CLAUDE.md`
-- `.claude/skills/{conductor,new-conversation,update-knowledge}`
-- `.codex/skills/{conductor,new-conversation,update-knowledge}`
+**conductor/**
+- `workflow.md`, `state.md`, `tracks.md`, `status.py`, `CONDUCTOR_GUIDE.md`
+- `constitution.md` *(mới trong v3.2 — điền invariants theo project)*
+- `track-templates/SPEC_TEMPLATE.md`, `track-templates/TASKS_TEMPLATE.md` *(mới trong v3.2)*
 
-## Chưa Bao Gồm Trong v1
+**docs/memory/**
+- `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`
+- `03_devops_infra.md`, `04_tech_decisions_log.md`, `session_save_cs.md`
+
+**.agents/skills/**, **.claude/skills/**, **.codex/skills/**
+- `{conductor,new-conversation,update-knowledge,handoff}`
+- `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
+
+## Chưa Bao Gồm
 
 - full skill libraries của TMS
 - các track riêng theo project
