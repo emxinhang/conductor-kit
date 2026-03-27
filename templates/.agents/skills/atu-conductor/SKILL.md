@@ -49,6 +49,9 @@ python conductor/status.py transition <id> planned <agent> "<note>"  # → UPCOM
 python conductor/status.py transition <id> dev <agent> "<note>"      # → PIPELINE→ACTIVE
 python conductor/status.py transition <id> qa <agent> "<note>"       # → warn nếu thiếu qa/
 python conductor/status.py transition <id> done <agent> "<note>"     # → ACTIVE→DONE
+
+# Shortcut cho done:
+python conductor/status.py close <id> [agent] [note]               # = transition <id> done
 ```
 
 ## 5. QA Gate (bắt buộc trước khi transition → qa)

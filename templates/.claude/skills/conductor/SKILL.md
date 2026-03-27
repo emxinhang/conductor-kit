@@ -40,7 +40,7 @@ Hoac doc `conductor/state.md` de xem ACTIVE / PIPELINE / DONE.
 ### 4. Ket thuc session hoac ket thuc track
 1. Verify code theo workflow hien hanh
 2. Cap nhat status va `CHANGELOG.md` neu co doi status
-3. `python conductor/status.py done` → promote PIPELINE[0] len ACTIVE
+3. `python conductor/status.py close <id> [agent] [note]` → done + remove khoi PIPELINE/UPCOMING + promote PIPELINE[0] len ACTIVE
 4. Dung `/update-knowledge` de luu learnings vao `docs/memory/`
 
 ## Quy tac quan trong
