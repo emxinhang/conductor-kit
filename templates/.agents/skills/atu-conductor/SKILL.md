@@ -43,9 +43,25 @@ python conductor/status.py              # Xem dashboard
 python conductor/status.py done         # Xong ACTIVE, đẩy PIPELINE[0] lên
 python conductor/status.py note "..."   # Ghi chú cho track đang làm
 python conductor/status.py add "name"   # Thêm vào BACKLOG
+
+# Transition tự động sync state.md + CHANGELOG.md:
+python conductor/status.py transition <id> planned <agent> "<note>"  # → UPCOMING→PIPELINE
+python conductor/status.py transition <id> dev <agent> "<note>"      # → PIPELINE→ACTIVE
+python conductor/status.py transition <id> qa <agent> "<note>"       # → warn nếu thiếu qa/
+python conductor/status.py transition <id> done <agent> "<note>"     # → ACTIVE→DONE
 ```
 
-## 5. Cấu trúc Folder Track
+## 5. QA Gate (bắt buộc trước khi transition → qa)
+
+Trước khi chạy `python conductor/status.py transition <id> qa`:
+- [ ] **Frontend build**: `npm run build` chạy không lỗi
+- [ ] **Backend runtime**: script QA chạy được trong venv
+- [ ] **Artifact saved**: script + log output đã lưu vào `conductor/tracks/<id>/qa/`
+- [ ] **Gitignore safe**: thư mục `qa/` không bị `.gitignore` chặn
+
+`status.py` sẽ **tự động warn** nếu chưa có thư mục `qa/`.
+
+## 6. Cấu trúc Folder Track
 - `spec.md`: Yêu cầu chi tiết.
 - `plan.md`: Kế hoạch thực hiện.
 - `SESSION.md`: Trạng thái dở dang (chỉ dành cho Implementation).

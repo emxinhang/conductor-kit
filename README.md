@@ -1,4 +1,4 @@
-# Conductor Kit — v3.2
+# Conductor Kit — v3.3
 
 Portable workflow pack for installing the same `conductor`, `docs`, `.agents`, `.claude`, and `.codex` conventions into other repositories.
 
@@ -19,8 +19,8 @@ This kit packages the Conductor workflow runtime + skills for 3 CLI tools in a s
 - `track-templates/TASKS_TEMPLATE.md` — task checklist template for `/planner-track`
 
 **Agent skills** (installed into each CLI's folder):
-- `.agents/skills/` — Gemini AG: `atu-conductor`, `atu-new-conversation`, `atu-update-knowledge`, `atu-handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`
-- `.claude/skills/` — Claude CS: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`
+- `.agents/skills/` — Gemini AG: `atu-conductor`, `atu-new-conversation`, `atu-update-knowledge`, `atu-handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`, `qa-verify-expert`, `frontend-standard-v1`
+- `.claude/skills/` — Claude CS: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`, `qa-verify-expert`, `frontend-standard-v1`
 - `.codex/skills/` — Codex CD: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`
 
 **Project memory** (installed into `docs/memory/`):
@@ -105,7 +105,7 @@ Recommended ignore in consumer repos:
 .conductor-kit/backups/
 ```
 
-## Included In v3.2
+## Included In v3.3
 
 **conductor/**
 - `workflow.md`, `state.md`, `tracks.md`, `status.py`, `CONDUCTOR_GUIDE.md`
@@ -120,10 +120,14 @@ Recommended ignore in consumer repos:
 - `workflows/atu-style.md`
 - `skills/{atu-conductor,atu-new-conversation,atu-update-knowledge,atu-handoff}`
 - `skills/{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
+- `skills/qa-verify-expert` *(new in v3.3 — data integrity audit, Schema Triad Rule, QA artifact standard)*
+- `skills/frontend-standard-v1` *(new in v3.3 — module workflow, Zero-Lint, Helper UI Pattern)*
 
 **.claude/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
 - `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
+- `qa-verify-expert` *(new in v3.3)*
+- `frontend-standard-v1` *(new in v3.3)*
 
 **.codex/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
@@ -131,7 +135,7 @@ Recommended ignore in consumer repos:
 
 ## Not Included
 
-- full engineering skill libraries (zero-loop-dev, frontend-standard, etc.)
+- full engineering skill libraries (zero-loop-dev, etc.)
 - project-specific tracks and specs
 - project-specific memory content
 - project-specific automation scripts
@@ -153,7 +157,7 @@ powershell -ExecutionPolicy Bypass -File .\sync-from-canonical.ps1 -SourceRoot <
 
 ---
 
-# Conductor Kit — v3.2 (Tiếng Việt)
+# Conductor Kit — v3.3 (Tiếng Việt)
 
 Bộ workflow portable để cài cùng một chuẩn `conductor`, `docs`, `.agents`, `.claude`, và `.codex` sang các repository khác.
 
@@ -241,7 +245,7 @@ Nên ignore trong repo đích:
 .conductor-kit/backups/
 ```
 
-## Phạm Vi Có Trong v3.2
+## Phạm Vi Có Trong v3.3
 
 **conductor/**
 - `workflow.md`, `state.md`, `tracks.md`, `status.py`, `CONDUCTOR_GUIDE.md`
@@ -252,13 +256,19 @@ Nên ignore trong repo đích:
 - `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`
 - `03_devops_infra.md`, `04_tech_decisions_log.md`, `session_save_cs.md`
 
-**.agents/skills/**, **.claude/skills/**, **.codex/skills/**
+**.agents/skills/**, **.claude/skills/**
+- `{conductor,new-conversation,update-knowledge,handoff}`
+- `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
+- `qa-verify-expert` *(mới trong v3.3 — audit data integrity, Schema Triad Rule, QA artifact standard)*
+- `frontend-standard-v1` *(mới trong v3.3 — module workflow 5 bước, Zero-Lint, Helper UI Pattern, Performance patterns)*
+
+**.codex/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
 - `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
 
 ## Chưa Bao Gồm
 
-- full skill libraries của TMS
+- full skill libraries riêng theo project
 - các track riêng theo project
 - memory content riêng theo project
 - automation scripts riêng theo project

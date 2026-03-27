@@ -55,3 +55,4 @@ Hoac doc `conductor/state.md` de xem ACTIVE / PIPELINE / DONE.
 - `/update-knowledge` - luu learnings va session state vao `docs/memory/`
 - `/module-workflow` - workflow module moi
 - `/refactor-workflow` - workflow refactor
+- `/qa-verify-expert` - audit data integrity, API contracts, QA artifacts truoc khi done
