@@ -261,6 +261,38 @@ def _read_tracks_row(track_id):
     return old_status, content, pattern
 
 
+def _resolve_track_title(track_id):
+    """Best-effort title lookup from tracks.md row label [Title](...)."""
+    if not TRACKS.exists():
+        return None
+    content = TRACKS.read_text(encoding="utf-8")
+    # Example row: | 106c2 | [Incident System Enhancements](...) | ...
+    m = re.search(
+        rf"^\|\s*{re.escape(track_id)}\s*\|\s*\[([^\]]+)\]\([^)]+\)\s*\|",
+        content,
+        flags=re.MULTILINE,
+    )
+    return m.group(1).strip() if m else None
+
+
+def _resolve_state_track_label(track_id):
+    """
+    Build readable label for state board DONE list.
+    Prefer folder slug (e.g., 106c2-incident-enhancements) and append human title.
+    """
+    slug = track_id
+    if TRACKS_DIR.exists():
+        matches = [
+            d for d in TRACKS_DIR.iterdir()
+            if d.is_dir() and d.name.lower().startswith(track_id.lower())
+        ]
+        if matches:
+            slug = matches[0].name
+
+    title = _resolve_track_title(track_id)
+    return f"{slug} ({title})" if title else slug
+
+
 def _write_tracks_row(content, pattern, new_label):
     new_content = re.sub(
         pattern,
@@ -311,10 +343,11 @@ def _remove_from_state_lists(content, track_id):
 def _add_to_state_done(content, track_id, agent):
     """Prepend track entry into DONE section of state.md."""
     today = date.today().isoformat()
-    entry = f"- {track_id} | {today} | {agent}"
+    label = _resolve_state_track_label(track_id)
+    entry = f"- {label} | {today} | {agent}"
     # De-duplicate existing DONE rows for this track before prepend
     content = re.sub(
-        rf"(?m)^- {re.escape(track_id)}\s*\|.*\n?",
+        rf"(?m)^- [^\n]*\b{re.escape(track_id)}\b[^\n]*\|.*\n?",
         "",
         content,
     )
