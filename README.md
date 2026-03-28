@@ -1,4 +1,4 @@
-# Conductor Kit — v3.3
+# Conductor Kit — v3.4
 
 Portable workflow pack for installing the same `conductor`, `docs`, `.agents`, `.claude`, and `.codex` conventions into other repositories.
 
@@ -19,9 +19,9 @@ This kit packages the Conductor workflow runtime + skills for 3 CLI tools in a s
 - `track-templates/TASKS_TEMPLATE.md` — task checklist template for `/planner-track`
 
 **Agent skills** (installed into each CLI's folder):
-- `.agents/skills/` — Gemini AG: `atu-conductor`, `atu-new-conversation`, `atu-update-knowledge`, `atu-handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`, `qa-verify-expert`, `frontend-standard-v1`
-- `.claude/skills/` — Claude CS: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`, `qa-verify-expert`, `frontend-standard-v1`
-- `.codex/skills/` — Codex CD: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`
+- `.agents/skills/` — Gemini AG: `atu-conductor`, `atu-new-conversation`, `atu-update-knowledge`, `atu-handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`, `qa-verify-expert`, `frontend-standard-v1`, `zero-loop-dev`, `deploy-track`
+- `.claude/skills/` — Claude CS: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`, `qa-verify-expert`, `frontend-standard-v1`, `zero-loop-dev`, `deploy-track`
+- `.codex/skills/` — Codex CD: `conductor`, `new-conversation`, `update-knowledge`, `handoff`, `brainstorm-track`, `planner-track`, `module-workflow`, `refactor-workflow`, `zero-loop-dev`, `deploy-track`
 
 **Project memory** (installed into `docs/memory/`):
 - `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`

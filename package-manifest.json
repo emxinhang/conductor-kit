@@ -1,5 +1,5 @@
 {
-  "version": "3.3.0",
+  "version": "3.4.0",
   "files": [
     {
       "template": "templates/conductor/workflow.md",
@@ -222,6 +222,16 @@
       "render": false
     },
     {
+      "template": "templates/.claude/skills/zero-loop-dev/SKILL.md",
+      "target": ".claude/skills/zero-loop-dev/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/deploy-track/SKILL.md",
+      "target": ".claude/skills/deploy-track/SKILL.md",
+      "render": false
+    },
+    {
       "template": "templates/.codex/skills/conductor/SKILL.md",
       "target": ".codex/skills/conductor/SKILL.md",
       "render": false
@@ -259,6 +269,26 @@
     {
       "template": "templates/.codex/skills/refactor-workflow/SKILL.md",
       "target": ".codex/skills/refactor-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/zero-loop-dev/SKILL.md",
+      "target": ".codex/skills/zero-loop-dev/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/deploy-track/SKILL.md",
+      "target": ".codex/skills/deploy-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/zero-loop-dev/SKILL.md",
+      "target": ".agents/skills/zero-loop-dev/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/deploy-track/SKILL.md",
+      "target": ".agents/skills/deploy-track/SKILL.md",
       "render": false
     }
   ]

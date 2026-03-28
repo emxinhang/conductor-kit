@@ -43,6 +43,17 @@ Hoac doc `conductor/state.md` de xem ACTIVE / PIPELINE / DONE.
 3. `python conductor/status.py close <id> [agent] [note]` → done + remove khoi PIPELINE/UPCOMING + promote PIPELINE[0] len ACTIVE
 4. Dung `/update-knowledge` de luu learnings vao `docs/memory/`
 
+### 5. QA Gate checklist (bat buoc truoc khi transition → qa)
+
+Truoc khi chay `python conductor/status.py transition <id> qa`:
+- [ ] **Frontend build**: `npm run build` chay khong loi
+- [ ] **Backend runtime**: script QA chay duoc trong venv (`python qa_script.py`)
+- [ ] **Artifact saved**: file script + log output da luu vao `conductor/tracks/<id>/qa/`
+- [ ] **Gitignore safe**: thu muc `qa/` khong bi `.gitignore` chan
+
+Neu thieu bat ky dieu kien nao tren → **KHONG duoc chuyen sang QA phase**.
+`status.py transition <id> qa` se warn neu chua co thu muc `qa/`.
+
 ## Quy tac quan trong
 
 - Khong coi `.claude/docs/WORKFLOW_STANDARD.md` la source of truth nua; file do chi con la redirect

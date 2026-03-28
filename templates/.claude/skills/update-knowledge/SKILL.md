@@ -85,7 +85,33 @@ Khi memory file vuot **40KB**:
 - Merge cac entry trung lap thanh 1
 - Giu nguyen P0 + P1 entries (khong bao gio xoa)
 
-### 5. Update Track Transition Ledger
+### 5. Constitution Sync Check
+
+Sau khi score P0/P1 entries, hoi:
+
+> **"Entry nao duoi day nen vao `conductor/constitution.md` khong?"**
+
+Tieu chi de vao constitution (khac voi memory thong thuong):
+
+| Tieu chi | Memory | Constitution |
+|----------|--------|-------------|
+| Scope | Track/module cu the | Anh huong MOI track tuong lai |
+| Loai | Bug fix, workaround | Architectural invariant, non-negotiable rule |
+| Vi du | "Track 102 dung selectinload" | "`selectinload` REQUIRED cho ALL nested relations" |
+
+**Neu co entry du dieu kien** → Bao user:
+```
+⚠️ Constitution Update Suggested:
+- [Rule]: <mo ta ngan gon>
+- [Why]: <ly do — incident, bug pattern, hoac non-negotiable decision>
+Ban muon cap nhat conductor/constitution.md khong?
+```
+
+**Neu dong y** → Append vao section phu hop trong `conductor/constitution.md` + update Changelog table o cuoi file.
+
+**Neu khong co gi du dieu kien** → Bo qua, khong mention.
+
+### 6. Update Track Transition Ledger
 
 Neu track co thay doi status trong session nay, ghi vao `CHANGELOG.md` trong folder track:
 
@@ -98,10 +124,10 @@ Neu track co thay doi status trong session nay, ghi vao `CHANGELOG.md` trong fol
 ```
 
 Dong thoi:
-- **Bat buoc**: Dung lenh `python conductor/status.py transition <id> <phase> <agent> "<note>"` de cap nhat dong bo 3 noi: `tracks.md`, `state.md`, va `CHANGELOG.md`.
+- **Bat buoc**: Dung lenh `python conductor/status.py transition <id> <phase> <agent> "<note>"` de cap nhat dong bo 4 noi: `tracks.md`, `state.md`, `CHANGELOG.md`, va `active_context.md`.
 - Tuyet doi khong sua tay cac file trang thai nay tru truong hop bat kha khang de tranh sai lech metadata.
 
-### 6. Session Save — luu theo agent
+### 7. Session Save — luu theo agent
 
 **Khong dung `session_save.md` chung nua.** Luu theo PURPOSE:
 
@@ -144,10 +170,10 @@ Dong thoi:
 **Rule**: Overwrite moi lan. Xoa `SESSION.md` khi track complete.
 Update `conductor/state.md` ACTIVE notes khi pause.
 
-### 7. Maintain Zero-Loop Skill
+### 8. Maintain Zero-Loop Skill
 - Neu phat hien quy trinh lap hoac loi he thong moi → update `.claude/skills/zero-loop-dev/SKILL.md`
 
-### 8. Final Report
+### 9. Final Report
 
 Bao cao cho ATu:
 - Da luu [X] entries (P0: N, P1: N)
