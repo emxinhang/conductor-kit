@@ -18,10 +18,11 @@ Skill này (đóng vai trò như một Technical Lead kết hợp Technical Writ
 ### Phase 1: Codebase Context Grounding (Bắt buộc)
 
 1. **Đọc Spec/PRD**: Đọc hiểu yêu cầu từ `spec.md` hoặc `PRD.md` trong folder track.
-2. **Search Tools**: Bắt buộc sử dụng công cụ tìm kiếm (`grep_search`, `find_by_name`, `view_file`) để quét các file codebase hiện tại.
+2. **Constitution Gate**: Đọc `conductor/constitution.md` — verify plan không vi phạm invariants. Nếu vi phạm → flag cho ATu trước khi tiếp tục.
+3. **Search Tools**: Bắt buộc sử dụng công cụ tìm kiếm (`grep_search`, `find_by_name`, `view_file`) để quét các file codebase hiện tại.
     - Tìm hiểu System Entity Models hiện tại (database schema/SQL files, Pydantic/SQLAlchemy models).
     - Tìm Frontend Components, API endpoints hoặc Interfaces đã có liên quan.
-3. **Verify Dependencies**: Phân tích xem có thư viện nào cần cài thêm, cấu hình nào cần cập nhật không.
+4. **Verify Dependencies**: Phân tích xem có thư viện nào cần cài thêm, cấu hình nào cần cập nhật không.
 
 *Lưu ý: Tuyệt đối không tự suy diễn kiến trúc. Khớp nối với thực tế codebase.*
 
@@ -45,13 +46,24 @@ Sử dụng template `templates/IMPLEMENTATION_PLAN_TEMPLATE.md` để tạo fil
 Output sinh ra sẽ nằm trong folder track hiện tại:
 ```text
 conductor/tracks/<track-id>/
-├── IMPLEMENTATION_PLAN.md    # Kế hoạch triển khai chi tiết
+├── IMPLEMENTATION_PLAN.md    # Kế hoạch triển khai chi tiết (narrative)
+└── tasks.md                  # Task list có markers [P]/[SEQ]/[US1]/[CHK]
 ```
 
 ## Templates
 
 ### Implementation Plan Template
 Đọc và sử dụng: `templates/IMPLEMENTATION_PLAN_TEMPLATE.md`
+
+### Tasks Template
+Đọc và sử dụng: `conductor/track-templates/TASKS_TEMPLATE.md`
+
+tasks.md phải có:
+- `[P]` đánh dấu task parallel-safe (AG + CD chạy cùng được)
+- `[SEQ]` đánh dấu task phụ thuộc vào task trước
+- `[US1]`/`[US2]` trace về user story trong spec.md
+- `[CHK-N]` checkpoint — ATu verify trước khi tiếp tục
+- File path rõ ràng cho mỗi task
 
 ## Best Practices
 

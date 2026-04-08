@@ -21,6 +21,9 @@ Auto-loaded boi Claude Code (khong can doc thu cong):
   backend/CLAUDE.md          → Backend patterns (lazy-load khi lam viec o backend/)
   docs/memory/MEMORY.md      → Quick index
 
+Codebase Navigation (doc truoc khi grep/explore):
+  docs/codebase-map.md       → Feature→Files map (19 domains) — LUON doc truoc Grep/Read
+
 Fragmented Memory (doc theo Context Profile):
   docs/memory/00_active_context.md        → Trang thai hien tai, Track dang lam (LUON DOC)
   docs/memory/01_frontend_guidelines.md   → Frontend rules/bugs
@@ -59,6 +62,7 @@ Xac dinh **profile** dua tren yeu cau cua ATu hoac track dang active:
 - **Luon doc**: `docs/memory/00_active_context.md` (trang thai hien tai)
 - **Theo profile**: Chi doc memory file tuong ung voi profile o bang tren
 - **KHONG load tat ca** — tiet kiem token, chi load dung thu can
+- **Khi profile la `backend` / `frontend` / `fullstack` / `debugging`**: Doc `docs/codebase-map.md` → biet ngay file nao can doc, KHONG grep mo mam
 
 ### 3. Auto-Search Memory (thay vi doc toan bo)
 
@@ -80,7 +84,7 @@ Neu ATu de cap keyword cu the (ten module, ten bug, pattern):
 - Neu khong ton tai → bo qua, tiep tuc binh thuong
 
 ### 5. Load AG Style (Nap quy chuan giao tiep)
-- Doc `.agent/workflows/atu-style.md`
+- Doc `.agents/workflows/atu-style.md`
 - Tuan thu cac quy tac ve Ngon ngu (Thinking & Planning bang Tieng Viet)
 
 ### 6. Check Conductor (Kiem tra tien do)
@@ -112,13 +116,14 @@ Bao cao cho ATu:
 | `conductor/state.md` | ❌ Luon doc | ACTIVE track, PIPELINE queue |
 | `docs/memory/session_save_cs.md` | ❌ CS only | CS planning session |
 | `conductor/tracks/[id]/SESSION.md` | ❌ AG/CD | Track implementation session |
-| `.agent/workflows/atu-style.md` | ❌ Manual | Quy chuan giao tiep |
+| `.agents/workflows/atu-style.md` | ❌ Manual | Quy chuan giao tiep |
 | `conductor/tracks.md` | ❌ Khi can | Full track list |
+| `docs/codebase-map.md` | ❌ backend/frontend/fullstack/debugging | Feature→Files map — doc truoc khi Grep/Read |
 
 ## Vi du output
 
 ```
-Em da nap context du an [PROJECT_NAME]:
+Em da nap context du an TMS-2026:
 
 **Profile**: backend
 **Trang thai**: Dang lam Track 102 - Booking Core Conversion

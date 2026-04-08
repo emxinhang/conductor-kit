@@ -10,7 +10,7 @@ allowed-tools:
 
 # Module Workflow Skill (AG Version)
 
-**Mục đích**: Điều phối quy trình 6 bước hoàn chỉnh để xây dựng module mới, đảm bảo tiếp cận hướng kiến trúc (Architecture-First) và chất lượng Zero-Loop.
+**Mục đích**: Điều phối quy trình 6 bước hoàn chỉnh để xây dựng module mới trong TMS-2026, đảm bảo tiếp cận hướng kiến trúc (Architecture-First) và chất lượng Zero-Loop.
 
 ## Khi nào sử dụng
 
@@ -59,9 +59,9 @@ Hỏi ATu về:
    - Nếu CHƯA → Bắt đầu từ Phase 1.
 
 ### Bước 2: Khởi tạo cấu trúc Track
-Chạy script khởi tạo:
-```bash
-python .agents/skills/module-workflow/scripts/init_track.py --track-id [ID] --name "[Tên Module]" --description "[Mô tả]"
+Chạy script khởi tạo (sử dụng đường dẫn tuyệt đối):
+```powershell
+python t:\01-code\TMS-2026\.agent\skills\module-workflow\scripts\init_track.py --track-id [ID] --name "[Tên Module]" --description "[Mô tả]"
 ```
 
 Công việc này sẽ tạo:
@@ -81,7 +81,7 @@ Thêm entry vào `conductor/tracks.md`.
 
 ## Phase 1: Requirements Discovery
 **Mục đích**: Làm rõ yêu cầu sản phẩm (PRD).
-**Skill hỗ trợ**: `/requirements-analyst`
+**Skill hỗ trợ**: `t:\01-code\TMS-2026\.agent\skills\requirements-analyst\SKILL.md`
 **Output**: `conductor/tracks/[track-id]/PRD.md`
 
 ## Phase 2: Architecture Design
@@ -95,7 +95,7 @@ Thêm entry vào `conductor/tracks.md`.
 
 ### Phase 3.5: Architectural Critique (Red Team Review)
 **Mục đích**: Phản biện kiến trúc Plan vừa viết bằng dữ liệu thực từ codebase.
-**Skill**: `/red-team-reviewer`
+**Skill**: `t:\01-code\TMS-2026\.agent\skills\red-team-reviewer\SKILL.md`
 **Quy trình**:
 1. ATu quăng Plan cho Codex/Cursor: *"Check codebase xem plan này đụng file nào, có tái sử dụng được gì không"*
 2. ATu call `@[/red-team-reviewer]` + paste Codex report vào
@@ -107,20 +107,20 @@ Thêm entry vào `conductor/tracks.md`.
 
 ## Phase 4: Backend Implementation
 **Mục đích**: Triển khai Backend và verify integrity.
-**Skill hỗ trợ**: `/zero-loop-dev`
+**Skill hỗ trợ**: `t:\01-code\TMS-2026\.agent\skills\zero-loop-dev\SKILL.md`
 **Lệnh quan trọng**:
-```bash
-python .agents/skills/zero-loop-dev/scripts/scaffold_backend.py [entity]
-python .agents/skills/zero-loop-dev/scripts/verify_integrity.py
+```powershell
+python .agent/skills/zero-loop-dev/scripts/scaffold_backend.py [entity]
+python .agent/skills/zero-loop-dev/scripts/verify_integrity.py
 ```
 
 ## Phase 5: Frontend Implementation
-**Mục đích**: Triển khai UI theo chuẩn project.
-**Skill hỗ trợ**: `/frontend-standard-v1`
+**Mục đích**: Triển khai UI theo chuẩn TMS-2026.
+**Skill hỗ trợ**: `t:\01-code\TMS-2026\.agent\skills\frontend-standard-v1\SKILL.md`
 
 ## Phase 6: Quality Assurance & Review
 **Mục đích**: Review code, refactor code smell và báo cáo QA.
-**Skill hỗ trợ**: `/refactoring-expert`
+**Skill hỗ trợ**: `t:\01-code\TMS-2026\.agent\skills\refactoring-expert\SKILL.md`
 **Output**: `conductor/tracks/[track-id]/QA_REPORT.md`
 
 ---

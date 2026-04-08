@@ -85,7 +85,33 @@ Khi memory file vuot **40KB**:
 - Merge cac entry trung lap thanh 1
 - Giu nguyen P0 + P1 entries (khong bao gio xoa)
 
-### 5. Update Track Transition Ledger
+### 5. Constitution Sync Check
+
+Sau khi score P0/P1 entries, hỏi:
+
+> **"Entry nào dưới đây nên vào `conductor/constitution.md` không?"**
+
+Tiêu chí để vào constitution (khác với memory thông thường):
+
+| Tiêu chí | Memory | Constitution |
+|----------|--------|-------------|
+| Scope | Track/module cụ thể | Ảnh hưởng MỌI track tương lai |
+| Loại | Bug fix, workaround | Architectural invariant, non-negotiable rule |
+| Ví dụ | "Track 102 dùng selectinload" | "`selectinload` REQUIRED cho ALL nested relations" |
+
+**Nếu có entry đủ điều kiện** → Báo ATu:
+```
+⚠️ Constitution Update Suggested:
+- [Rule]: <mô tả ngắn gọn>
+- [Why]: <lý do — incident, bug pattern, hoặc non-negotiable decision>
+Anh muốn em cập nhật conductor/constitution.md không?
+```
+
+**Nếu ATu đồng ý** → Append vào section phù hợp trong `conductor/constitution.md` + update Changelog table ở cuối file.
+
+**Nếu không có gì đủ điều kiện** → Bỏ qua, không mention.
+
+### 6. Update Track Transition Ledger
 
 Neu track co thay doi status trong session nay, ghi vao `CHANGELOG.md` trong folder track:
 
@@ -97,9 +123,14 @@ Neu track co thay doi status trong session nay, ghi vao `CHANGELOG.md` trong fol
 | 2026-03-17 | 💻 Dev | 🧪 QA | CS | Backend + Frontend done, cho ATu test |
 ```
 
-Dong thoi update status trong `conductor/tracks.md`.
+Dong thoi:
+- **Bat buoc**: Dung lenh `python conductor/status.py transition <id> <phase> <agent> "<note>"` de cap nhat dong bo **4 noi**: `tracks.md`, `state.md`, `CHANGELOG.md` va `docs/memory/00_active_context.md`.
+- **Khi phase=done**: lenh tren tu dong xoa track khoi PIPELINE/UPCOMING trong `state.md` va them vao DONE — KHONG can sua tay.
+- **Khi phase=planned**: track phai duoc them tay vao `## PIPELINE` trong `state.md` (status.py chua tu dong hoa buoc nay).
+- **Tuyet doi khong sua tay** cac file trang thai nay (dac biet la `tracks.md` va `00_active_context.md`) de tranh sai lech metadata.
+- **Cap nhat `conductor/state.md`**: Khi xong plan (them vao PIPELINE) hoac xong implement (chuyen sang QA, dung `status.py transition` voi phase tuong ung).
 
-### 6. Session Save — luu theo agent
+### 7. Session Save — luu theo agent
 
 **Khong dung `session_save.md` chung nua.** Luu theo PURPOSE:
 
@@ -142,14 +173,14 @@ Dong thoi update status trong `conductor/tracks.md`.
 **Rule**: Overwrite moi lan. Xoa `SESSION.md` khi track complete.
 Update `conductor/state.md` ACTIVE notes khi pause.
 
-### 7. Maintain Zero-Loop Skill
-- Neu phat hien quy trinh lap hoac loi he thong moi → update `.claude/skills/zero-loop-dev/SKILL.md`
+### 8. Maintain Zero-Loop Skill
+- Neu phat hien quy trinh lap hoac loi he thong moi → update `.agents/skills/zero-loop-dev/SKILL.md`
 
-### 8. Final Report
+### 9. Final Report
 
 Bao cao cho ATu:
 - Da luu [X] entries (P0: N, P1: N)
-- Track [ID] status: [old] → [new]
+- Track [ID] status: [old] → [new] (Synced across 4 files ✓)
 - Session saved ✓
 - Goi y: "Lan sau go `/new-conversation` de em load lai context"
 
@@ -157,16 +188,16 @@ Bao cao cho ATu:
 
 | File | Muc dich |
 |------|----------|
-| `docs/memory/00_active_context.md` | Trang thai hien tai |
+| `docs/memory/00_active_context.md` | Trang thai hien tai (Sync via status.py) |
 | `docs/memory/01_frontend_guidelines.md` | Frontend rules/bugs |
 | `docs/memory/02_backend_guidelines.md` | Backend rules/bugs |
 | `docs/memory/03_devops_infra.md` | DevOps/Config |
 | `docs/memory/04_tech_decisions_log.md` | Lich su quyet dinh kien truc |
 | `docs/memory/session_save_cs.md` | CS planning session (CS ghi) |
 | `conductor/tracks/[id]/SESSION.md` | Track implement session (AG/CD ghi) |
-| `conductor/state.md` | Update ACTIVE notes khi pause |
-| `conductor/tracks.md` | Tien do tracks |
-| `conductor/tracks/<id>/CHANGELOG.md` | Transition ledger per track |
+| `conductor/state.md` | Dashboard state (Sync via status.py) |
+| `conductor/tracks.md` | Master list tracks (Sync via status.py) |
+| `conductor/tracks/<id>/CHANGELOG.md` | Transition ledger per track (Sync via status.py) |
 
 ## Lien ket voi cac skill khac
 - `/new-conversation` - Nap lai context dau session

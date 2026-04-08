@@ -18,7 +18,7 @@ Skill này (đóng vai trò như một Technical Lead kết hợp Technical Writ
 ### Phase 1: Codebase Context Grounding (Bắt buộc)
 
 1. **Đọc Spec/PRD**: Đọc hiểu yêu cầu từ `spec.md` hoặc `PRD.md` trong folder track.
-2. **Constitution Gate**: Đọc `conductor/constitution.md` — verify plan không vi phạm invariants. Nếu vi phạm → flag cho user trước khi tiếp tục.
+2. **Constitution Gate**: Đọc `conductor/constitution.md` — verify plan không vi phạm invariants. Nếu vi phạm → flag cho ATu trước khi tiếp tục.
 3. **Search Tools**: Bắt buộc sử dụng công cụ tìm kiếm (`grep_search`, `find_by_name`, `view_file`) để quét các file codebase hiện tại.
     - Tìm hiểu System Entity Models hiện tại (database schema/SQL files, Pydantic/SQLAlchemy models).
     - Tìm Frontend Components, API endpoints hoặc Interfaces đã có liên quan.
@@ -62,7 +62,7 @@ tasks.md phải có:
 - `[P]` đánh dấu task parallel-safe (AG + CD chạy cùng được)
 - `[SEQ]` đánh dấu task phụ thuộc vào task trước
 - `[US1]`/`[US2]` trace về user story trong spec.md
-- `[CHK-N]` checkpoint — user verify trước khi tiếp tục
+- `[CHK-N]` checkpoint — ATu verify trước khi tiếp tục
 - File path rõ ràng cho mỗi task
 
 ## Best Practices

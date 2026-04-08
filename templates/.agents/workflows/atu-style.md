@@ -6,7 +6,7 @@ description: Quy chuẩn giao tiếp và tư duy của Antigravity (AG) khi làm
 
 ## 1. Thinking Process (Suy nghĩ)
 - **Ngôn ngữ:** BẮT BUỘC sử dụng **Tiếng Việt** 100%.
-- **Phong cách:** 
+- **Phong cách:**
   - Suy nghĩ như đang đối thoại trực tiếp (First-person perspective).
   - Phân tích rõ: `Input` -> `Vấn đề tiềm ẩn` -> `Giải pháp dự kiến`.
   - Nếu gặp lỗi lạ: Dừng lại, suy nghĩ "Tại sao?" thay vì thử mù quáng.
@@ -14,7 +14,7 @@ description: Quy chuẩn giao tiếp và tư duy của Antigravity (AG) khi làm
 ## 2. Interaction Style (Tương tác)
 - **Short Logs:** Khi thực hiện chuỗi tác vụ dài, hãy in ra các dòng log ngắn gọn để ATu nắm tình hình (dạng bullet points).
     - *Ví dụ:* "- Phát hiện lỗi A. Đang check file B..."
-- **Blocker Alert:** Nếu gặp lỗi > 2 lần lặp lại, hoặc lỗi liên quan thiếu context -> **DỪNG LẠI & HỎI**. 
+- **Blocker Alert:** Nếu gặp lỗi > 2 lần lặp lại, hoặc lỗi liên quan thiếu context -> **DỪNG LẠI & HỎI**.
 - **Comment-out Issues:** Khi gặp vấn đề nhỏ chưa cần fix ngay hoặc cần chú ý, hãy thêm comment ngắn vào code hoặc chat: `// TODO: [AG] Cần check lại logic này vì...`
 
 ## 3. Debugging Protocol

@@ -105,12 +105,13 @@ Recommended ignore in consumer repos:
 .conductor-kit/backups/
 ```
 
-## Included In v3.3
+## Included In v3.4
 
 **conductor/**
 - `workflow.md`, `state.md`, `tracks.md`, `status.py`, `CONDUCTOR_GUIDE.md`
-- `constitution.md` *(new in v3.2)*
-- `track-templates/SPEC_TEMPLATE.md`, `track-templates/TASKS_TEMPLATE.md` *(new in v3.2)*
+- `constitution.md` — non-negotiable architectural invariants template
+- `code_styleguides/{general,python,typescript}.md`
+- `track-templates/{SPEC_TEMPLATE,TASKS_TEMPLATE}.md`
 
 **docs/memory/**
 - `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`
@@ -120,22 +121,25 @@ Recommended ignore in consumer repos:
 - `workflows/atu-style.md`
 - `skills/{atu-conductor,atu-new-conversation,atu-update-knowledge,atu-handoff}`
 - `skills/{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
-- `skills/qa-verify-expert` *(new in v3.3 — data integrity audit, Schema Triad Rule, QA artifact standard)*
-- `skills/frontend-standard-v1` *(new in v3.3 — module workflow, Zero-Lint, Helper UI Pattern)*
+- `skills/qa-verify-expert`
+- `skills/frontend-standard-v1`
+- `skills/zero-loop-dev` *(new in v3.4)*
+- `skills/deploy-track` *(new in v3.4)*
 
 **.claude/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
 - `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
-- `qa-verify-expert` *(new in v3.3)*
-- `frontend-standard-v1` *(new in v3.3)*
+- `qa-verify-expert`, `frontend-standard-v1`
+- `zero-loop-dev`, `deploy-track` *(new in v3.4)*
 
 **.codex/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
 - `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
+- `zero-loop-dev`, `deploy-track` *(new in v3.4)*
 
 ## Not Included
 
-- full engineering skill libraries (zero-loop-dev, etc.)
+- full engineering skill libraries
 - project-specific tracks and specs
 - project-specific memory content
 - project-specific automation scripts
@@ -157,7 +161,7 @@ powershell -ExecutionPolicy Bypass -File .\sync-from-canonical.ps1 -SourceRoot <
 
 ---
 
-# Conductor Kit — v3.3 (Tiếng Việt)
+# Conductor Kit — v3.4 (Tiếng Việt)
 
 Bộ workflow portable để cài cùng một chuẩn `conductor`, `docs`, `.agents`, `.claude`, và `.codex` sang các repository khác.
 
@@ -245,12 +249,13 @@ Nên ignore trong repo đích:
 .conductor-kit/backups/
 ```
 
-## Phạm Vi Có Trong v3.3
+## Phạm Vi Có Trong v3.4
 
 **conductor/**
 - `workflow.md`, `state.md`, `tracks.md`, `status.py`, `CONDUCTOR_GUIDE.md`
-- `constitution.md` *(mới trong v3.2 — điền invariants theo project)*
-- `track-templates/SPEC_TEMPLATE.md`, `track-templates/TASKS_TEMPLATE.md` *(mới trong v3.2)*
+- `constitution.md` — template invariants kiến trúc bắt buộc
+- `code_styleguides/{general,python,typescript}.md`
+- `track-templates/{SPEC_TEMPLATE,TASKS_TEMPLATE}.md`
 
 **docs/memory/**
 - `MEMORY.md`, `00_active_context.md`, `01_frontend_guidelines.md`, `02_backend_guidelines.md`
@@ -259,12 +264,13 @@ Nên ignore trong repo đích:
 **.agents/skills/**, **.claude/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
 - `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
-- `qa-verify-expert` *(mới trong v3.3 — audit data integrity, Schema Triad Rule, QA artifact standard)*
-- `frontend-standard-v1` *(mới trong v3.3 — module workflow 5 bước, Zero-Lint, Helper UI Pattern, Performance patterns)*
+- `qa-verify-expert`, `frontend-standard-v1`
+- `zero-loop-dev`, `deploy-track` *(mới trong v3.4)*
 
 **.codex/skills/**
 - `{conductor,new-conversation,update-knowledge,handoff}`
 - `{brainstorm-track,planner-track,module-workflow,refactor-workflow}`
+- `zero-loop-dev`, `deploy-track` *(mới trong v3.4)*
 
 ## Chưa Bao Gồm
 

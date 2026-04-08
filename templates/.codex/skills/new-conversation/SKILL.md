@@ -80,7 +80,7 @@ Neu ATu de cap keyword cu the (ten module, ten bug, pattern):
 - Neu khong ton tai → bo qua, tiep tuc binh thuong
 
 ### 5. Load AG Style (Nap quy chuan giao tiep)
-- Doc `.agent/workflows/atu-style.md`
+- Doc `.agents/workflows/atu-style.md`
 - Tuan thu cac quy tac ve Ngon ngu (Thinking & Planning bang Tieng Viet)
 
 ### 6. Check Conductor (Kiem tra tien do)
@@ -112,13 +112,13 @@ Bao cao cho ATu:
 | `conductor/state.md` | ❌ Luon doc | ACTIVE track, PIPELINE queue |
 | `docs/memory/session_save_cs.md` | ❌ CS only | CS planning session |
 | `conductor/tracks/[id]/SESSION.md` | ❌ AG/CD | Track implementation session |
-| `.agent/workflows/atu-style.md` | ❌ Manual | Quy chuan giao tiep |
+| `.agents/workflows/atu-style.md` | ❌ Manual | Quy chuan giao tiep |
 | `conductor/tracks.md` | ❌ Khi can | Full track list |
 
 ## Vi du output
 
 ```
-Em da nap context du an [PROJECT_NAME]:
+Em da nap context du an TMS-2026:
 
 **Profile**: backend
 **Trang thai**: Dang lam Track 102 - Booking Core Conversion

@@ -50,13 +50,23 @@ Tất cả files sẽ được tạo trong folder track hiện tại:
 ```
 conductor/tracks/<track-id>/
 ├── PRD.md                    # Product Requirements Document
-└── spec.md                   # Đặc tả kỹ thuật (nếu đã có - giữ nguyên hoặc cập nhật)
+└── spec.md                   # Đặc tả kỹ thuật có cấu trúc (FR-xxx, SC-xxx, Given/When/Then)
 ```
 
 ## Templates
 
 ### PRD Template
 Đọc và sử dụng: `templates/PRD_TEMPLATE.md`
+
+### Spec Template
+Đọc và sử dụng: `conductor/track-templates/SPEC_TEMPLATE.md`
+
+spec.md phải có cấu trúc:
+- **User Stories** (`US1`, `US2` ...) — "As a X, I want Y, so that Z"
+- **Functional Requirements** (`FR-001`, `FR-002` ...) — per user story
+- **Acceptance Scenarios** (`SC-001` ...) — Given/When/Then
+- **Success Criteria** — checklist của SC-xxx
+- **Constitution Check** — verify không vi phạm `conductor/constitution.md`
 
 ## Best Practices
 

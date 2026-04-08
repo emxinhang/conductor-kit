@@ -1,6 +1,6 @@
 ---
 name: atu-conductor
-description: Cách vận hành quy trình Conductor (Vietnamese Version) để quản lý tính năng và lỗi cho dự án.
+description: Cách vận hành quy trình Conductor (Vietnamese Version) để quản lý tính năng và lỗi cho dự án TMS-2026.
 ---
 
 # Skill: Conductor (Quản lý Track & Điều phối)
@@ -44,14 +44,11 @@ python conductor/status.py done         # Xong ACTIVE, đẩy PIPELINE[0] lên
 python conductor/status.py note "..."   # Ghi chú cho track đang làm
 python conductor/status.py add "name"   # Thêm vào BACKLOG
 
-# Transition tự động sync state.md + CHANGELOG.md:
+# Transition tự động sync state.md:
 python conductor/status.py transition <id> planned <agent> "<note>"  # → UPCOMING→PIPELINE
 python conductor/status.py transition <id> dev <agent> "<note>"      # → PIPELINE→ACTIVE
 python conductor/status.py transition <id> qa <agent> "<note>"       # → warn nếu thiếu qa/
-python conductor/status.py transition <id> done <agent> "<note>"     # → ACTIVE→DONE
-
-# Shortcut cho done:
-python conductor/status.py close <id> [agent] [note]               # = transition <id> done
+python conductor/status.py transition <id> done <agent> "<note>"     # → PIPELINE/UPCOMING→DONE
 ```
 
 ## 5. QA Gate (bắt buộc trước khi transition → qa)
@@ -64,7 +61,7 @@ Trước khi chạy `python conductor/status.py transition <id> qa`:
 
 `status.py` sẽ **tự động warn** nếu chưa có thư mục `qa/`.
 
-## 6. Cấu trúc Folder Track
+## 5. Cấu trúc Folder Track
 - `spec.md`: Yêu cầu chi tiết.
 - `plan.md`: Kế hoạch thực hiện.
 - `SESSION.md`: Trạng thái dở dang (chỉ dành cho Implementation).

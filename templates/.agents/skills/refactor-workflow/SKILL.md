@@ -10,7 +10,7 @@ allowed-tools:
 
 # Refactor Workflow Skill (AG Version)
 
-**Mục đích**: Điều phối quy trình refactor hệ thống các module hiện có, đảm bảo cải thiện chất lượng code mà không làm hỏng tính năng đang chạy.
+**Mục đích**: Điều phối quy trình refactor hệ thống các module hiện có của TMS-2026, đảm bảo cải thiện chất lượng code mà không làm hỏng tính năng đang chạy.
 
 ## Khi nào sử dụng
 
@@ -56,9 +56,9 @@ Hỏi ATu về:
 3. **Mức độ ưu tiên** (P0: Chặn workflow khác, P1: Ảnh hưởng user, P2: Chất lượng code).
 
 ### Bước 2: Khởi tạo cấu trúc Track Refactor
-Chạy script:
-```bash
-python .agents/skills/refactor-workflow/scripts/init_refactor_track.py --track-id [ID] --module "[Tên Module]" --priority [P0-P3]
+Chạy script (đường dẫn tuyệt đối):
+```powershell
+python t:\01-code\TMS-2026\.agent\skills\refactor-workflow\scripts\init_refactor_track.py --track-id [ID] --module "[Tên Module]" --priority [P0-P3]
 ```
 
 Công việc này sẽ tạo:
@@ -75,7 +75,7 @@ conductor/tracks/[track-id]-refactor-[slug]/
 
 ## Phase 1: Root Cause Analysis (RCA)
 **Mục đích**: Hiểu rõ cái gì hỏng và tại sao hỏng trước khi sửa.
-**Skill hỗ trợ**: `/refactoring-expert`
+**Skill hỗ trợ**: `t:\01-code\TMS-2026\.agent\skills\refactoring-expert\SKILL.md`
 **Output**: `conductor/tracks/[track-id]/RCA.md`
 
 ## Phase 2: Re-Architecture

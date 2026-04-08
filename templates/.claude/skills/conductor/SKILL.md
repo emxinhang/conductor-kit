@@ -40,7 +40,7 @@ Hoac doc `conductor/state.md` de xem ACTIVE / PIPELINE / DONE.
 ### 4. Ket thuc session hoac ket thuc track
 1. Verify code theo workflow hien hanh
 2. Cap nhat status va `CHANGELOG.md` neu co doi status
-3. `python conductor/status.py close <id> [agent] [note]` → done + remove khoi PIPELINE/UPCOMING + promote PIPELINE[0] len ACTIVE
+3. `python conductor/status.py done` → promote PIPELINE[0] len ACTIVE
 4. Dung `/update-knowledge` de luu learnings vao `docs/memory/`
 
 ### 5. QA Gate checklist (bat buoc truoc khi transition → qa)
@@ -49,7 +49,7 @@ Truoc khi chay `python conductor/status.py transition <id> qa`:
 - [ ] **Frontend build**: `npm run build` chay khong loi
 - [ ] **Backend runtime**: script QA chay duoc trong venv (`python qa_script.py`)
 - [ ] **Artifact saved**: file script + log output da luu vao `conductor/tracks/<id>/qa/`
-- [ ] **Gitignore safe**: thu muc `qa/` khong bi `.gitignore` chan
+- [ ] **Gitignore safe**: thu muc `qa/` khong bi `.gitignore` chặn
 
 Neu thieu bat ky dieu kien nao tren → **KHONG duoc chuyen sang QA phase**.
 `status.py transition <id> qa` se warn neu chua co thu muc `qa/`.
@@ -66,4 +66,3 @@ Neu thieu bat ky dieu kien nao tren → **KHONG duoc chuyen sang QA phase**.
 - `/update-knowledge` - luu learnings va session state vao `docs/memory/`
 - `/module-workflow` - workflow module moi
 - `/refactor-workflow` - workflow refactor
-- `/qa-verify-expert` - audit data integrity, API contracts, QA artifacts truoc khi done

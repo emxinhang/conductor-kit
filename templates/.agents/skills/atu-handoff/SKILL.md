@@ -20,8 +20,6 @@ Dùng skill này khi bắt đầu một dự án mà đã có Boilerplate từ C
 - Nếu track mới khởi tạo: Đọc file `spec.md` và `plan.md` của track đó.
 
 ### 2. Khảo sát tình trạng Code (State Reconnaissance)
-- Dùng công cụ `run_command` chạy lệnh `git status` hoặc `git diff` để xem Codex/Cursor đã generate ra những file nào.
-- Dùng `frontend-qa-gatekeeper` chạy thử lệnh `npm run build` (tsc) ở thư mục frontend để xem code boilerplate của Codex có bị lỗi type/syntax không. 
 - Dùng `qa-verify-expert` chạy thử `python scripts/audit_schemas.py` (nếu liên quan tới DB) để kiểm tra Schema.
 
 ### 3. Thực thi theo chuẩn Zero-Loop (Execution)

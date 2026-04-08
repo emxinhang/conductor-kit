@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-conductor/status.py — Conductor Dashboard
+conductor/status.py — TMS-2026 Conductor Dashboard
 
 Usage:
   python conductor/status.py                              # Show dashboard
@@ -66,7 +66,7 @@ def row(text=""):
     max_w = W - 4
     if len(text) <= max_w:
         return f"║  {text:<{max_w}}  ║"
-
+    
     # Simple wrap: split by space or just chunk it
     lines = []
     while len(text) > max_w:
@@ -77,7 +77,7 @@ def row(text=""):
         text = text[break_pt:].strip()
     if text:
         lines.append(text)
-
+    
     return "\n".join(f"║  {line:<{max_w}}  ║" for line in lines)
 
 def row_empty():
@@ -130,7 +130,7 @@ def show():
     # done     = parse_list(content, "DONE") # Bỏ qua DONE
 
     print(top())
-    print(f"║{'CONDUCTOR BOARD':^{W}}║")
+    print(f"║{'TMS-2026 — CONDUCTOR BOARD':^{W}}║")
     print(mid())
 
     # ACTIVE
@@ -527,21 +527,21 @@ def _update_active_context(track_id, phase):
     """Sync status in docs/memory/00_active_context.md."""
     if not CONTEXT.exists():
         return False
-
+    
     content = CONTEXT.read_text(encoding="utf-8")
     # Label mapping for context
     label = PHASE_MAP[phase]
-
+    
     # Pattern to find: - **Track <id>**: ... — **[...]**
     # Supports both **[Label]** and **Label**
     pattern = rf"(- \*\*Track {re.escape(track_id)}\*\*: .*? — \*\*)\[?.*?\]?(\*\*)"
-
+    
     if re.search(pattern, content):
         new_content = re.sub(pattern, rf"\g<1>{label}\g<2>", content)
         # Also handle special case where it might be "Done" instead of "Completed"
         if phase == "done":
             new_content = new_content.replace(f"**Track {track_id}**: Done", f"**Track {track_id}**: ✅ Completed")
-
+        
         CONTEXT.write_text(new_content, encoding="utf-8")
         return True
     return False

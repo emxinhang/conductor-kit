@@ -1,65 +1,32 @@
 ---
 name: deploy-track
-description: Deploy track lên production sau khi QA pass — chạy backend deploy, frontend deploy, migration, smoke test production, rồi cập nhật conductor track status = Done.
+description: Chuẩn hóa bước cuối cùng (Release) - Triển khai lên Railway/Vercel, chạy migration, kiểm tra Smoke test production và Rollback nếu có biến cố.
 ---
 
-# Deploy Track
+# Deploy Track Skill
 
-Hướng dẫn end-to-end deploy một track đã QA-pass lên production, bao gồm migration, smoke test, và wrap-up.
+Đóng vai trò Release Manager cho phase cuối cùng của luồng làm việc TMS-2026 (Phase 7).
 
-## When to Use
+## Trách nhiệm cốt lõi
+1. Đảm bảo Database luôn được cập nhật an toàn (`alembic upgrade head`) trước khi nhả code backend.
+2. Confirm status deployment của Backend (Railway) và Frontend (Vercel).
+3. Đóng vai trò bảo hộ (Watchdog) cho Production.
 
-Sau khi:
-- QA checklist đã PASS
-- User đã test local và chấp thuận
-- Không còn pending bugs
+## Workflow Thực thi (Release Pipeline)
 
-## Pre-Deploy Checklist
+1. **Pre-Flight Check**:
+   - Yêu cầu người dùng (ATu) `commit` and `push` code lên branch gốc (Git). 
+   *(Lưu ý: AG tuyệt đối không tự động push code production).*
+2. **Railway (Backend) Deployment**:
+   - Hỗ trợ User thực thi `railway up` (hoặc kiểm tra status qua Railway CLI nếu cài đặt sẵn).
+   - NHẮC NHỞ BẮT BUỘC: Kiểm tra và chạy `alembic upgrade head` đối với Production DB nếu track hiện tại có sinh file revision.
+3. **Vercel (Frontend) Deployment**:
+   - Theo dõi pipeline deploy của Vercel (nếu tracking qua github/cli).
+4. **Production Smoke Test**:
+   - Tự động hóa viết cURL check health url Backend `https://production.domain/api/health`.
+   - Đảm bảo endpoint liên quan đến module vừa Release trả về `200 OK` (hoặc không 500 Internall Error).
+5. **Rollback Guidance (Dành cho rủi ro khẩn)**:
+   - Nếu deployment thất bại: Hỗ trợ user downgrade alembic (`alembic downgrade -1`) và rollback git source ngay lập tức.
 
-- [ ] `npm run build` pass (frontend)
-- [ ] `verify_integrity.py` pass (backend)
-- [ ] Migration files đã commit vào git
-- [ ] Tất cả files đã saved
-
-## Deploy Process
-
-### Bước 1: Commit Code
-> NEVER auto-commit. Nhắc user commit trước khi push.
-
-```bash
-git status && git diff --stat
-```
-
-### Bước 2: Deploy Backend
-Push lên `main` để trigger auto-deploy, sau đó chạy migration theo hướng dẫn của dự án.
-
-**Verify**: `curl https://[api-url]/api/v1/health` → 200 OK
-
-### Bước 3: Deploy Frontend
-Auto-deploy khi push lên `main`. Kiểm tra build thành công trên platform Dashboard.
-
-**Verify**: Mở production URL, không có white screen.
-
-### Bước 4: Production Smoke Test
-
-- [ ] Login thành công
-- [ ] Feature chính hoạt động (happy path)
-- [ ] Không có console errors nghiêm trọng
-- [ ] API calls trả về 200
-
-### Bước 5: Update Conductor & Save Learnings
-
-```bash
-/conductor    # cập nhật track status
-/update-knowledge    # lưu learnings
-```
-
-## Exit Routine (Bắt buộc)
-
-```bash
-# 1. Transition track → done
-python conductor/status.py transition <track-id> done AG "deployed to production"
-
-# 2. Promote PIPELINE → ACTIVE
-python conductor/status.py done
-```
+## Integration
+Skill này thường được chạy song song với `@[/conductor]` ngay trước khi kéo trạng thái Feature sang `Done`.

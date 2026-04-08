@@ -12,7 +12,7 @@ allowed-tools:
 
 # Module Workflow Skill
 
-**Purpose**: Orchestrate the complete 6-phase workflow for building new modules, ensuring architecture-first approach and quality at every step.
+**Purpose**: Orchestrate the complete 6-phase workflow for building new modules in TMS-2026, ensuring architecture-first approach and quality at every step.
 
 ## When to Use
 

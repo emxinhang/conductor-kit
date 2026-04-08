@@ -14,7 +14,7 @@ allowed-tools:
 
 # Refactor Workflow Skill
 
-**Purpose**: Orchestrate systematic refactoring of existing modules, ensuring quality improvements without breaking existing functionality.
+**Purpose**: Orchestrate systematic refactoring of existing modules in TMS-2026, ensuring quality improvements without breaking existing functionality.
 
 ## When to Use
 

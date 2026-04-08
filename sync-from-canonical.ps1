@@ -43,18 +43,40 @@ $syncMap = @(
     @{ Source = ".agents/skills/atu-new-conversation/SKILL.md";  Target = "templates/.agents/skills/atu-new-conversation/SKILL.md" },
     @{ Source = ".agents/skills/atu-update-knowledge/SKILL.md";  Target = "templates/.agents/skills/atu-update-knowledge/SKILL.md" },
     @{ Source = ".agents/skills/atu-handoff/SKILL.md";           Target = "templates/.agents/skills/atu-handoff/SKILL.md" },
+    @{ Source = ".agents/skills/brainstorm-track/SKILL.md";      Target = "templates/.agents/skills/brainstorm-track/SKILL.md" },
+    @{ Source = ".agents/skills/planner-track/SKILL.md";         Target = "templates/.agents/skills/planner-track/SKILL.md" },
+    @{ Source = ".agents/skills/module-workflow/SKILL.md";       Target = "templates/.agents/skills/module-workflow/SKILL.md" },
+    @{ Source = ".agents/skills/refactor-workflow/SKILL.md";     Target = "templates/.agents/skills/refactor-workflow/SKILL.md" },
+    @{ Source = ".agents/skills/qa-verify-expert/SKILL.md";      Target = "templates/.agents/skills/qa-verify-expert/SKILL.md" },
+    @{ Source = ".agents/skills/frontend-standard-v1/SKILL.md";  Target = "templates/.agents/skills/frontend-standard-v1/SKILL.md" },
+    @{ Source = ".agents/skills/zero-loop-dev/SKILL.md";         Target = "templates/.agents/skills/zero-loop-dev/SKILL.md" },
+    @{ Source = ".agents/skills/deploy-track/SKILL.md";          Target = "templates/.agents/skills/deploy-track/SKILL.md" },
 
     # --- .claude/skills (Claude CS) ---
-    @{ Source = ".claude/skills/conductor/SKILL.md";         Target = "templates/.claude/skills/conductor/SKILL.md" },
-    @{ Source = ".claude/skills/new-conversation/SKILL.md";  Target = "templates/.claude/skills/new-conversation/SKILL.md" },
-    @{ Source = ".claude/skills/update-knowledge/SKILL.md";  Target = "templates/.claude/skills/update-knowledge/SKILL.md" },
-    @{ Source = ".claude/skills/handoff/SKILL.md";           Target = "templates/.claude/skills/handoff/SKILL.md" },
+    @{ Source = ".claude/skills/conductor/SKILL.md";             Target = "templates/.claude/skills/conductor/SKILL.md" },
+    @{ Source = ".claude/skills/new-conversation/SKILL.md";      Target = "templates/.claude/skills/new-conversation/SKILL.md" },
+    @{ Source = ".claude/skills/update-knowledge/SKILL.md";      Target = "templates/.claude/skills/update-knowledge/SKILL.md" },
+    @{ Source = ".claude/skills/handoff/SKILL.md";               Target = "templates/.claude/skills/handoff/SKILL.md" },
+    @{ Source = ".claude/skills/brainstorm-track/SKILL.md";      Target = "templates/.claude/skills/brainstorm-track/SKILL.md" },
+    @{ Source = ".claude/skills/planner-track/SKILL.md";         Target = "templates/.claude/skills/planner-track/SKILL.md" },
+    @{ Source = ".claude/skills/module-workflow/SKILL.md";       Target = "templates/.claude/skills/module-workflow/SKILL.md" },
+    @{ Source = ".claude/skills/refactor-workflow/SKILL.md";     Target = "templates/.claude/skills/refactor-workflow/SKILL.md" },
+    @{ Source = ".claude/skills/qa-verify-expert/SKILL.md";      Target = "templates/.claude/skills/qa-verify-expert/SKILL.md" },
+    @{ Source = ".claude/skills/frontend-standard-v1/SKILL.md";  Target = "templates/.claude/skills/frontend-standard-v1/SKILL.md" },
+    @{ Source = ".claude/skills/zero-loop-dev/SKILL.md";         Target = "templates/.claude/skills/zero-loop-dev/SKILL.md" },
+    @{ Source = ".claude/skills/deploy-track/SKILL.md";          Target = "templates/.claude/skills/deploy-track/SKILL.md" },
 
     # --- .codex/skills (Codex CD) ---
-    @{ Source = ".codex/skills/conductor/SKILL.md";         Target = "templates/.codex/skills/conductor/SKILL.md" },
-    @{ Source = ".codex/skills/new-conversation/SKILL.md";  Target = "templates/.codex/skills/new-conversation/SKILL.md" },
-    @{ Source = ".codex/skills/update-knowledge/SKILL.md";  Target = "templates/.codex/skills/update-knowledge/SKILL.md" },
-    @{ Source = ".codex/skills/handoff/SKILL.md";           Target = "templates/.codex/skills/handoff/SKILL.md" }
+    @{ Source = ".codex/skills/conductor/SKILL.md";              Target = "templates/.codex/skills/conductor/SKILL.md" },
+    @{ Source = ".codex/skills/new-conversation/SKILL.md";       Target = "templates/.codex/skills/new-conversation/SKILL.md" },
+    @{ Source = ".codex/skills/update-knowledge/SKILL.md";       Target = "templates/.codex/skills/update-knowledge/SKILL.md" },
+    @{ Source = ".codex/skills/handoff/SKILL.md";                Target = "templates/.codex/skills/handoff/SKILL.md" },
+    @{ Source = ".codex/skills/brainstorm-track/SKILL.md";       Target = "templates/.codex/skills/brainstorm-track/SKILL.md" },
+    @{ Source = ".codex/skills/planner-track/SKILL.md";          Target = "templates/.codex/skills/planner-track/SKILL.md" },
+    @{ Source = ".codex/skills/module-workflow/SKILL.md";        Target = "templates/.codex/skills/module-workflow/SKILL.md" },
+    @{ Source = ".codex/skills/refactor-workflow/SKILL.md";      Target = "templates/.codex/skills/refactor-workflow/SKILL.md" },
+    @{ Source = ".codex/skills/zero-loop-dev/SKILL.md";          Target = "templates/.codex/skills/zero-loop-dev/SKILL.md" },
+    @{ Source = ".codex/skills/deploy-track/SKILL.md";           Target = "templates/.codex/skills/deploy-track/SKILL.md" }
 )
 
 $synced = 0

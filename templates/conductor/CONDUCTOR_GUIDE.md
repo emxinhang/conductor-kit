@@ -1,4 +1,4 @@
-# Conductor Guide — [[PROJECT_NAME]]
+# Conductor Guide — TMS-2026
 > Hướng dẫn vận hành hệ thống điều phối 3 agents: CS · AG · CD
 
 ---

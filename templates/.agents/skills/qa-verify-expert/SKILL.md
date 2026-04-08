@@ -29,7 +29,7 @@ Generates quick, standalone Python or Node scripts to perform API-level QA again
 ### Phase 1: Audit Data Layer Integration
 After finishing backend development and BEFORE pushing code or writing frontend logic:
 ```bash
-python .agents/skills/qa-verify-expert/scripts/audit_schemas.py
+python .agent/skills/qa-verify-expert/scripts/audit_schemas.py
 ```
 *(Note: Expand the script to perform deeper AST or introspective scanning as needed by the module size).*
 
@@ -61,7 +61,7 @@ Mỗi track khi chuyển sang phase QA phải có folder `conductor/tracks/<id>/
 
 Cấu trúc:
 ```
-conductor/tracks/<track-id>/
+conductor/tracks/106c2-incident-enhancements/
   qa/
     qa_script.py     ← script chạy được
     qa_result.log    ← output thực tế (không mock)

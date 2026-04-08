@@ -1,6 +1,6 @@
 ---
 name: zero-loop-dev
-description: Enforce "Zero-Loop" development workflow V3 — Execution Engine cho Giai đoạn 2. Agent code đến đâu tự verify xanh đến đó, cấm báo hoàn thành mà không có bằng chứng. Use when creating new backend entities or before saying "Backend Done".
+description: Enforce "Zero-Loop" development workflow V3 — Execution Engine cho Giai đoạn 2. AG code đến đâu tự verify xanh đến đó, cấm báo hoàn thành mà không có bằng chứng. Use when creating new backend entities or before saying "Backend Done".
 allowed-tools:
   - Bash
 ---
@@ -14,7 +14,7 @@ Quy trình **Zero-Loop V3** áp dụng cho Giai đoạn 2 (sau khi đã có `IMP
 Khi nhận lệnh `/handoff` hoặc bắt đầu task mới:
 - Đọc `IMPLEMENTATION_PLAN.md` mới nhất trong track hiện tại
 - Chạy `git status` và `git diff` để xem Codex/Cursor đã generate file nào
-- Chạy `npm run build` (tsc) để check boilerplate có lỗi type/syntax không — xử lý rác trước khi code tiếp
+- Chạy `npm run build` (tsc) để check boilerplate Codex có lỗi type/syntax không — xử lý rác trước khi code tiếp
 
 ## Bước 2: Thực thi & Code Logic
 
@@ -33,9 +33,14 @@ Khi nhận lệnh `/handoff` hoặc bắt đầu task mới:
 - **Tiêu chuẩn Đỏ**: HTTP 4xx/5xx, exception, wrong data → fix ngay
 
 ### Frontend
-- Chạy `npm run build` tại `/frontend`
-- **Tiêu chuẩn Xanh**: Build pass, zero TypeScript errors, zero unused vars
-- Nhắc user check UI browser nếu có visual changes
+- Chạy **bắt buộc theo thứ tự**:
+  ```bash
+  cd frontend; npx tsc --noEmit 2>&1 | tail -20
+  cd frontend; npm run build 2>&1 | tail -15
+  ```
+- **Tiêu chuẩn Xanh**: `tsc --noEmit` 0 errors → build pass, zero unused vars
+- **`tsc --noEmit` là blocking step** — nếu còn lỗi type thì KHÔNG được báo done dù build pass (Vite có thể bỏ qua type errors)
+- Nhắc ATu check UI browser nếu có visual changes
 
 ## Bước 4: Xử lý Lỗi RCA (Cuốn Chiếu)
 
@@ -54,7 +59,7 @@ Khi hoàn tất cụm task, báo cáo với **bằng chứng thực tế**:
 Backend: HTTP 200 — [paste terminal output snippet]
 Frontend: Build pass — 0 errors
 → Đã [x] trong IMPLEMENTATION_PLAN.md
-→ User check UI tại: [route/component]
+→ ATu check UI tại: [route/component]
 ```
 
 ---
@@ -79,9 +84,10 @@ Kiểm tra: models registered, routers registered, pending migrations
 
 1. **No Manual File Creation** — dùng scaffold cho entity mới
 2. **Verify First** — không nói "Backend Done" chưa chạy verify script
-3. **Schema Integrity** — thêm field vào Model → update đồng thời `CreateSchema`, `UpdateSchema`, `ResponseSchema`
+3. **Schema Integrity** — thêm field vào Model → update đồng thời `CreateSchema`, `UpdateSchema`, `ResponseSchema` → tạo migration theo `alembic-workflow` skill
 4. **API Interface Sync** — update Backend Schema → update TypeScript interfaces trong `frontend/src/api/*.ts` trước khi dùng trong component
 5. **Evidence Required** — mọi "hoàn thành" phải kèm terminal output hoặc build log
+6. **tsc trước build** — `npx tsc --noEmit` PHẢI chạy và xanh trước `npm run build`. Vite build pass ≠ type-safe.
 
 ## Exit Routine — Sau khi verify_integrity pass
 

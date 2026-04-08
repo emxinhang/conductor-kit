@@ -70,13 +70,30 @@ Phan loai va ghi vao file tuong ung:
 
 Doc noi dung cu truoc, roi dung `edit` de chen thong tin moi. Viet ngan gon suc tich bang tieng Viet.
 
-**Format ghi**:
+**Format ghi** — dùng cấu trúc L1/L2/L3 để phần quan trọng nhất luôn ở trên:
 ```
-### [P0/P1/P2] Ten kien thuc (YYYY-MM-DD)
-- **Van de**: ...
-- **Giai phap**: ...
-- **Ap dung khi**: ...
+### [P0/P1] Tên kiến thức (YYYY-MM-DD)
+**L1 — Critical Facts:** [1-2 câu cốt lõi — phần luôn được đọc khi load context]
+**L2 — Context:** [Detail cần thiết khi đào sâu — bỏ qua nếu L1 đã đủ]
+**L3 — References:** [File:line hoặc track ID liên quan — bỏ qua nếu không có]
 ```
+
+**Ví dụ đúng:**
+```
+### [P1] selectinload bắt buộc cho nested relations (2026-04-07)
+**L1 — Critical Facts:** Async SQLAlchemy không hỗ trợ lazy load — dùng selectinload() cho tất cả relations cần trong response, joinedload() cho many-to-one.
+**L2 — Context:** Lỗi hay gặp: "MissingGreenlet" khi quên eager load. Pattern đúng: options(selectinload(Model.items).joinedload(Item.owner)).
+**L3 — References:** backend/app/services/pdf_service.py:38
+```
+
+**Ví dụ sai — không viết như này:**
+```
+### Ghi nhớ về database
+Hôm nay phát hiện rằng khi làm việc với SQLAlchemy trong môi trường async, 
+cần phải sử dụng selectinload thay vì lazy loading vì... [đoạn dài]
+```
+
+**Word limit:** L1 ≤ 2 câu. L2 ≤ 3 câu. L3 chỉ là reference pointer.
 
 ### 4. Memory Pruning (Dinh ky)
 
@@ -87,29 +104,29 @@ Khi memory file vuot **40KB**:
 
 ### 5. Constitution Sync Check
 
-Sau khi score P0/P1 entries, hoi:
+Sau khi score P0/P1 entries, hỏi:
 
-> **"Entry nao duoi day nen vao `conductor/constitution.md` khong?"**
+> **"Entry nào dưới đây nên vào `conductor/constitution.md` không?"**
 
-Tieu chi de vao constitution (khac voi memory thong thuong):
+Tiêu chí để vào constitution (khác với memory thông thường):
 
-| Tieu chi | Memory | Constitution |
+| Tiêu chí | Memory | Constitution |
 |----------|--------|-------------|
-| Scope | Track/module cu the | Anh huong MOI track tuong lai |
-| Loai | Bug fix, workaround | Architectural invariant, non-negotiable rule |
-| Vi du | "Track 102 dung selectinload" | "`selectinload` REQUIRED cho ALL nested relations" |
+| Scope | Track/module cụ thể | Ảnh hưởng MỌI track tương lai |
+| Loại | Bug fix, workaround | Architectural invariant, non-negotiable rule |
+| Ví dụ | "Track 102 dùng selectinload" | "`selectinload` REQUIRED cho ALL nested relations" |
 
-**Neu co entry du dieu kien** → Bao user:
+**Nếu có entry đủ điều kiện** → Báo ATu:
 ```
 ⚠️ Constitution Update Suggested:
-- [Rule]: <mo ta ngan gon>
-- [Why]: <ly do — incident, bug pattern, hoac non-negotiable decision>
-Ban muon cap nhat conductor/constitution.md khong?
+- [Rule]: <mô tả ngắn gọn>
+- [Why]: <lý do — incident, bug pattern, hoặc non-negotiable decision>
+Anh muốn em cập nhật conductor/constitution.md không?
 ```
 
-**Neu dong y** → Append vao section phu hop trong `conductor/constitution.md` + update Changelog table o cuoi file.
+**Nếu ATu đồng ý** → Append vào section phù hợp trong `conductor/constitution.md` + update Changelog table ở cuối file.
 
-**Neu khong co gi du dieu kien** → Bo qua, khong mention.
+**Nếu không có gì đủ điều kiện** → Bỏ qua, không mention.
 
 ### 6. Update Track Transition Ledger
 
@@ -125,6 +142,8 @@ Neu track co thay doi status trong session nay, ghi vao `CHANGELOG.md` trong fol
 
 Dong thoi:
 - **Bat buoc**: Dung lenh `python conductor/status.py transition <id> <phase> <agent> "<note>"` de cap nhat dong bo 4 noi: `tracks.md`, `state.md`, `CHANGELOG.md`, va `active_context.md`.
+- **Khi phase=done**: lenh tren tu dong xoa track khoi PIPELINE/UPCOMING trong `state.md` va them vao DONE — KHONG can sua tay.
+- **Khi phase=planned**: track phai duoc them tay vao `## PIPELINE` trong `state.md` (status.py chua tu dong hoa buoc nay).
 - Tuyet doi khong sua tay cac file trang thai nay tru truong hop bat kha khang de tranh sai lech metadata.
 
 ### 7. Session Save — luu theo agent

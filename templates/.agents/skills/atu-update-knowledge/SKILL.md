@@ -23,13 +23,36 @@ Xác định lại các task đã hoàn thành và xem xét:
 ### 3. Cập nhật Memory (`docs/memory/`)
 Ghi vào các file tương ứng (00_active_context, 01_frontend_guidelines, 02_backend_guidelines, 03_devops_infra, 04_tech_decisions_log).
 
-### 4. Quản lý trạng thái Track & Conductor
+### 4. Constitution Sync Check
+
+Sau khi scoring P0/P1, kiểm tra:
+
+> **"Entry nào nên vào `conductor/constitution.md`?"**
+
+| Tiêu chí | Memory | Constitution |
+|----------|--------|-------------|
+| Scope | Track/module cụ thể | Ảnh hưởng MỌI track tương lai |
+| Loại | Bug fix, workaround | Architectural invariant, non-negotiable rule |
+
+**Nếu có** → Báo ATu:
+```
+⚠️ Constitution Update Suggested:
+- [Rule]: <mô tả>
+- [Why]: <lý do>
+Anh muốn em cập nhật conductor/constitution.md không?
+```
+**Nếu ATu đồng ý** → Append vào section phù hợp + update Changelog cuối file.
+**Nếu không có** → Bỏ qua, không mention.
+
+### 5. Quản lý trạng thái Track & Conductor
 Nếu có sự thay đổi về trạng thái (status) của bất kỳ track nào:
 - **Bắt buộc**: Sử dụng lệnh `python conductor/status.py transition <id> <phase> <agent> "<note>"` để cập nhật đồng bộ **4 nơi**: `tracks.md`, `state.md`, `CHANGELOG.md` và `docs/memory/00_active_context.md`.
+- **Khi phase=done**: lệnh trên tự động xóa track khỏi PIPELINE/UPCOMING trong `state.md` và thêm vào DONE — KHÔNG cần sửa tay.
+- **Khi phase=planned**: track phải được thêm tay vào `## PIPELINE` trong `state.md` (status.py chưa tự động hóa bước này).
 - **Tuyệt đối không sửa tay** các trạng thái track trong các file này (đặc biệt là cột Status trong `tracks.md` và label trong `00_active_context.md`) để tránh sai lệch metadata.
 - **Cập nhật `conductor/state.md`**: Khi xong plan (thêm vào PIPELINE) hoặc xong implement (chuyển sang QA, dùng `status.py transition` với phase tương ứng).
 
-### 5. Lưu trạng thái Session (Session Save)
+### 6. Lưu trạng thái Session (Session Save)
 Lưu theo agent — KHÔNG dùng `session_save.md` chung nữa:
 
 | Agent Role | File lưu |
@@ -39,7 +62,7 @@ Lưu theo agent — KHÔNG dùng `session_save.md` chung nữa:
 
 **Format Session:** Tóm tắt công việc đã làm, việc dở dang, file đang mở và bước tiếp theo cụ thể.
 
-### 6. Báo cáo tổng kết (Final Report)
+### 7. Báo cáo tổng kết (Final Report)
 Báo cáo cho ATu:
 - Kiến thức đã lưu.
 - Trạng thái Track (Cũ -> Mới).

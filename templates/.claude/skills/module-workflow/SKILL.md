@@ -12,7 +12,7 @@ allowed-tools:
 
 # Module Workflow Skill
 
-**Purpose**: Orchestrate the complete 6-phase workflow for building new modules, ensuring architecture-first approach and quality at every step.
+**Purpose**: Orchestrate the complete 6-phase workflow for building new modules in TMS-2026, ensuring architecture-first approach and quality at every step.
 
 ## When to Use
 
@@ -314,8 +314,8 @@ Add entry to `conductor/tracks.md`:
    python .claude/skills/zero-loop-dev/scripts/verify_integrity.py
 
    # Frontend
-   cd frontend && npm run lint && npm run type-check
-
+   cd frontend; npm run lint; npm run type-check
+   ```
    # End-to-end test
    # Manual testing of CRUD operations
    ```
@@ -345,7 +345,9 @@ Add entry to `conductor/tracks.md`:
 
 2. Update `.phase` file to "completed"
 
-3. Ask user: "Module complete! Ready to commit and deploy?"
+3. **Update `docs/codebase-map.md`**: Thêm section mới cho module vừa tạo (domain name, purpose, backend paths, frontend paths, key schemas). Nếu có AG: yêu cầu AG chạy lại `docs/architecture/codebase-map-spec.md` chỉ cho domain mới.
+
+4. Ask user: "Module complete! Ready to commit and deploy?"
 
 ---
 
@@ -431,6 +433,7 @@ A successful module-workflow execution means:
 - ✅ Code review completed
 - ✅ User sign-off obtained
 - ✅ Track marked as completed
+- ✅ `docs/codebase-map.md` updated với domain mới
 
 ---
 

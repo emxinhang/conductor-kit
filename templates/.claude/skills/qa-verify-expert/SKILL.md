@@ -61,7 +61,7 @@ Mỗi track khi chuyển sang phase QA phải có folder `conductor/tracks/<id>/
 
 Cấu trúc:
 ```
-conductor/tracks/<track-id>/
+conductor/tracks/106c2-incident-enhancements/
   qa/
     qa_script.py     ← script chạy được
     qa_result.log    ← output thực tế (không mock)

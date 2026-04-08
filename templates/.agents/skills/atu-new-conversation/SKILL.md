@@ -3,64 +3,70 @@ name: atu-new-conversation
 description: Khởi động phiên làm việc mới, nạp context từ Project Memory và kiểm tra tiến độ dự án. Dùng ngay khi bắt đầu conversation mới.
 ---
 
-# Skill: New Conversation (ATu Project)
+# New Conversation Skill (ATu Project)
 
-Dùng skill này khi bắt đầu một phiên làm việc mới để đảm bảo AG hiểu đúng bối cảnh, nạp đúng kiến thức và tiếp tục công việc đang dở dang theo cơ chế Conductor mới.
+Sử dụng skill này để khởi động phiên làm việc mới một cách hiệu quả, nạp lại context dự án và kiểm tra trạng thái hiện tại.
 
-## Quy trình thực thi
+## Khi nào dùng
+- Bắt đầu conversation mới.
+- Muốn nạp lại context dự án (sau khi bị mất context hoặc đổi agent).
+- Cần kiểm tra tiến độ các Track trong Conductor.
+
+## Nguồn tri thức (Knowledge Base)
+
+### Codebase Navigation (Đọc trước khi grep/explore)
+- `docs/codebase-map.md`: **LUÔN ĐỌC** để biết Feature -> Files map (19 domains). Giúp định vị file chính xác, không grep mò mẫm.
+
+### Project Memory (Đọc theo Context Profile)
+- `docs/memory/00_active_context.md`: **BẮT BUỘC ĐỌC** - Chứa trạng thái hiện tại, Track đang làm.
+- `docs/memory/01_frontend_guidelines.md`: Frontend rules/bugs.
+- `docs/memory/02_backend_guidelines.md`: Backend rules/bugs.
+- `docs/memory/03_devops_infra.md`: DevOps/Config.
+- `docs/memory/04_tech_decisions_log.md`: Lịch sử quyết định kiến trúc.
+
+### Session State (Bám sát tiến độ)
+- `conductor/state.md`: Shared state (ACTIVE track, PIPELINE queue).
+- `conductor/tracks/[active-track]/SESSION.md`: AG/CD implementation context (nếu đang thực hiện track).
+- `docs/memory/session_save_cs.md`: CS role context (nếu đang ở phase planning).
+
+## Quy trình thực hiện
 
 ### 1. Detect Context Profile
 Xác định **profile** dựa trên yêu cầu của ATu hoặc track đang active:
 - `planning`: Brainstorm, lập kế hoạch, viết PRD (CS role).
-- `backend`: Tập trung vào FastAPI, Database, API (AG/CD role).
-- `frontend`: Tập trung vào React, Next.js, UI/UX (AG/CD role).
+- `backend`: Tập trung vào FastAPI, Database, API.
+- `frontend`: Tập trung vào React, Next.js, UI/UX.
 - `fullstack`: Cần cả Backend và Frontend.
 - `debugging`: Fix bug, Root Cause Analysis.
 - `devops`: Deploy, cấu hình hệ thống.
+- **Mặc định**: Nếu chưa rõ scope -> dùng `planning`.
 
-### 2. Nạp Kiến thức (Memory)
-- **Bắt buộc**: Đọc `docs/memory/00_active_context.md` để nắm bắt tình trạng hiện tại của dự án.
-- **Dùng Grep**: Ưu tiên `grep_search` trong `docs/memory/` với keyword cụ thể để tiết kiệm token thay vì đọc toàn bộ file guidelines lớn.
+### 2. Load Knowledge Base (Theo Profile)
+- **Luôn đọc**: `docs/memory/00_active_context.md` và `docs/codebase-map.md`.
+- **Theo profile**: Chỉ đọc memory file tương ứng (ví dụ: profile `backend` đọc `02_backend_guidelines.md`).
+- **KHÔNG load tất cả** để tiết kiệm token.
 
-### 3. Load Conductor State + Session (QUAN TRỌNG)
+### 3. Auto-Search Memory (Thay vì đọc toàn bộ)
+- Ưu tiên sử dụng `grep_search` trong thư mục `docs/memory/` với keyword cụ thể để tìm thông tin relevant nhanh chóng.
 
-**Bước 3a — Đọc shared state:**
-- Đọc `conductor/state.md` (hoặc `.agents/conductor/state.md`) → biết ACTIVE track, PIPELINE queue.
-- Đây là nguồn truth duy nhất về "đang làm gì".
-
-**Bước 3b — Load session save theo agent:**
-- **Nếu AG đang đóng vai CS**: Đọc `docs/memory/session_save_cs.md`.
-- **Nếu AG đang đóng vai Implementer (đang làm track [ID])**: Đọc `conductor/tracks/[active-track]/SESSION.md`.
-- Nếu file tồn tại → báo ATu: _"Em load được session từ lần trước: [tóm tắt]. Tiếp tục không?"_
-- ⚠️ `docs/memory/session_save.md` đã deprecated — bỏ qua không dùng.
-
-### 4. Kiểm tra Conductor
-- Đọc `conductor/tracks.md` để xác định Track đang Active (💻 Dev) hoặc Track tiếp theo cần làm (📅 Planned).
-- Xem `CHANGELOG.md` trong folder track nếu track đang dở.
+### 4. Load Conductor State + Session (QUAN TRỌNG)
+- Đọc `conductor/state.md` để biết ACTIVE track.
+- Kiểm tra file SESSION tương ứng (theo agent role) để khôi phục trạng thái làm việc.
+- Nếu tìm thấy session cũ -> Tóm tắt và hỏi ATu: *"Em load được session từ lần trước: [tóm tắt]. Tiếp tục không?"*
 
 ### 5. Status Report & Ready
-Báo cáo cho ATu:
+Báo cáo ngắn gọn cho ATu:
 - **Profile detected**: [Tên profile]
 - **Context loaded**: [Mục tiêu hiện tại]
-- **Trạng thái**: Đang làm dở [Task X] / Chuẩn bị làm [Task Y]
-- **Checkpoint**: [Tóm tắt từ session save]
+- **Trạng thái**: Đang làm [Task X] / Chuẩn bị làm [Task Y]
 
-## Quy chuẩn Giao tiếp & Tư duy (AG Style)
-
-### 1. Persona & Ngôn ngữ
-- **Tên**: **AG** (Antigravity). **Đối tác**: **ATu**.
-- **Ngôn ngữ**: BẮT BUỘC sử dụng **Tiếng Việt** (Technical terms giữ Tiếng Anh). 
+## Tiêu chuẩn giao tiếp (ATu Style)
+- **Ngôn ngữ**: BẮT BUỘC sử dụng **Tiếng Việt** (Technical terms giữ Tiếng Anh).
 - **Suy nghĩ (Thought)**: Phải dùng Tiếng Việt 100% để ATu hiểu rõ tiến trình tư duy.
 - **Thái độ**: Chủ động (Proactive), Minh bạch, Đồng đội.
-
-### 2. Tư duy & Thực thi (Thinking Standard)
-- **Phân tích**: Luôn đi từ `Input` -> `Vấn đề tiềm ẩn` -> `Giải pháp dự kiến`.
 - **Phản ứng lỗi**: Nếu gặp lỗi lạ hoặc lặp lại > 2 lần -> **DỪNG LẠI & HỎI** (Blocker Alert). Tuyệt đối không thử mò mẫm vô nghĩa.
-- **Short Logs**: Khi làm tác vụ dài, in các bullet points ngắn gọn để báo cáo tiến độ (Ví dụ: "- Đang check file A...").
-- **Implementation Plan**: BẮT BUỘC viết bằng **Tiếng Việt**.
 
-### 3. Debugging & Verification
-- **Console First**: Ưu tiên dùng `console.log` hoặc logs trực tiếp để ATu check thủ công thay vì viết script phức tạp nếu không cần thiết.
-- **Verification**: Luôn verify fix bằng bằng chứng cụ thể (Logs/Terminal output) trước khi báo Done.
-- **Comment-out**: Thêm chú thích `// TODO: [AG] ...` vào code nếu có logic cần lưu ý hoặc check sau.
-
+## Liên kết với các skill khác
+- `atu-conductor`: Quản lý tracks chi tiết.
+- `atu-update-knowledge`: Lưu kiến thức cuối session.
+- `zero-loop-dev`: Quy trình thực thi không lỗi lặp lại.
