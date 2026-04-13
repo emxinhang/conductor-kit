@@ -79,7 +79,7 @@ foreach ($entry in $manifest.files) {
     $targetDirPath = Split-Path -Parent $targetPath
 
     if (-not (Test-Path $sourcePath)) {
-        Write-Warning "Missing template: $sourcePath"; continue
+        throw "Missing template: $sourcePath"
     }
 
     if (-not (Test-Path $targetDirPath)) {
