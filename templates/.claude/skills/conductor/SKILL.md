@@ -12,6 +12,8 @@ description: Quan ly task theo quy trinh Conductor - theo doi tien do tracks, ca
 - Shared state (doc truoc tien): `conductor/state.md`
 - Dashboard: `python conductor/status.py`
 - Workflow reference: `conductor/workflow.md`
+- Contract registry: `docs/contracts/_registry.md`
+- Contract framework: `docs/contracts/FRAMEWORK.md`
 - Track status master list: `conductor/tracks.md`
 - Shared docs root: `docs/`
 - Memory index: `docs/memory/MEMORY.md`
@@ -50,6 +52,7 @@ Truoc khi chay `python conductor/status.py transition <id> qa`:
 - [ ] **Backend runtime**: script QA chay duoc trong venv (`python qa_script.py`)
 - [ ] **Artifact saved**: file script + log output da luu vao `conductor/tracks/<id>/qa/`
 - [ ] **Gitignore safe**: thu muc `qa/` khong bi `.gitignore` chặn
+- [ ] **Contract gate** (track 014+): `make validate-contracts` pass (hoặc N/A nếu không có API changes)
 
 Neu thieu bat ky dieu kien nao tren → **KHONG duoc chuyen sang QA phase**.
 `status.py transition <id> qa` se warn neu chua co thu muc `qa/`.
@@ -66,3 +69,4 @@ Neu thieu bat ky dieu kien nao tren → **KHONG duoc chuyen sang QA phase**.
 - `/update-knowledge` - luu learnings va session state vao `docs/memory/`
 - `/module-workflow` - workflow module moi
 - `/refactor-workflow` - workflow refactor
+- `/done-checklist` - exit gate với contract validation (track 014+)

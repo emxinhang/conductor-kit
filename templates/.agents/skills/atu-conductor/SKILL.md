@@ -1,69 +1,72 @@
 ---
-name: atu-conductor
-description: Cách vận hành quy trình Conductor (Vietnamese Version) để quản lý tính năng và lỗi cho dự án TMS-2026.
+name: conductor
+description: Quan ly task theo quy trinh Conductor - theo doi tien do tracks, cap nhat status, va duy tri documentation. Dung khi bat dau/ket thuc task, can kiem tra tien do, hoac cap nhat trang thai tracks.
 ---
 
-# Skill: Conductor (Quản lý Track & Điều phối)
+# Conductor Workflow Skill
 
-Dùng skill này để điều phối công việc giữa 3 agents (CS, AG, CD) đảm bảo nguyên tắc **Cuốn chiếu: 1 implementation tại 1 thời điểm**.
+`conductor/workflow.md` la workflow reference canonical cho toan repo.
 
-## 1. Vai trò của Agents
+## Tai nguyen chia se
 
-| Agent | Tool | Role |
-|---|---|---|
-| **CS** | Claude Sonnet | Orchestrator — Brainstorm, PRD, Plan, Review |
-| **AG** | Gemini | Implementer — Code Backend/Frontend theo Plan |
-| **CD** | Codex | Implementer — Code, Debug (Dự phòng cho AG) |
+- Shared state (doc truoc tien): `conductor/state.md`
+- Dashboard: `python conductor/status.py`
+- Workflow reference: `conductor/workflow.md`
+- Contract registry: `docs/contracts/_registry.md`
+- Contract framework: `docs/contracts/FRAMEWORK.md`
+- Track status master list: `conductor/tracks.md`
+- Shared docs root: `docs/`
+- Memory index: `docs/memory/MEMORY.md`
+- Huong dan day du: `conductor/CONDUCTOR_GUIDE.md`
 
-## 2. Shared State & Dashboard
+## Cach su dung
 
-Mọi agent bắt đầu session bằng cách kiểm tra tình trạng dự án:
-- **Đọc `conductor/state.md`**: Nguồn truth duy nhất về ACTIVE/PIPELINE/DONE.
-- **Dùng Dashboard**: Chạy lệnh `python conductor/status.py`.
-
-## 3. Quy trình làm việc (Workflow)
-
-### CS (Planning Role)
-1. Read `state.md` + `session_save_cs.md`.
-2. Brainstorm → PRD → Plan (trong `conductor/tracks/[id]/`).
-3. Chốt Plan: Cập nhật track vào **PIPELINE** trong `state.md`.
-4. Run `/update-knowledge` để lưu session.
-
-### AG / CD (Implementation Role)
-1. Read `state.md` → Thấy track trong **ACTIVE**.
-2. Read `conductor/tracks/[id]/SESSION.md` để tiếp tục context.
-3. Implement code & Verify (Zero-Loop).
-4. Khi Done: Chạy `python conductor/status.py done`.
-5. Khi Pause: Run `/update-knowledge` để lưu session.
-
-## 4. Các lệnh quan trọng
-
+### 1. Kiem tra tien do tong quan
 ```bash
-python conductor/status.py              # Xem dashboard
-python conductor/status.py done         # Xong ACTIVE, đẩy PIPELINE[0] lên
-python conductor/status.py note "..."   # Ghi chú cho track đang làm
-python conductor/status.py add "name"   # Thêm vào BACKLOG
-
-# Transition tự động sync state.md:
-python conductor/status.py transition <id> planned <agent> "<note>"  # → UPCOMING→PIPELINE
-python conductor/status.py transition <id> dev <agent> "<note>"      # → PIPELINE→ACTIVE
-python conductor/status.py transition <id> qa <agent> "<note>"       # → warn nếu thiếu qa/
-python conductor/status.py transition <id> done <agent> "<note>"     # → PIPELINE/UPCOMING→DONE
+python conductor/status.py   # Dashboard nhanh
 ```
+Hoac doc `conductor/state.md` de xem ACTIVE / PIPELINE / DONE.
 
-## 5. QA Gate (bắt buộc trước khi transition → qa)
+### 2. Bat dau lam viec tren track
+1. Doc `conductor/state.md` → xem ACTIVE track va PIPELINE
+2. Doc `PRD.md` / `spec.md` / `IMPLEMENTATION_PLAN.md` cua track
+3. Cap nhat status theo state machine trong `conductor/workflow.md`
+4. Ghi `CHANGELOG.md` neu co status transition
+5. Update `state.md` ACTIVE khi bat dau implement
 
-Trước khi chạy `python conductor/status.py transition <id> qa`:
-- [ ] **Frontend build**: `npm run build` chạy không lỗi
-- [ ] **Backend runtime**: script QA chạy được trong venv
-- [ ] **Artifact saved**: script + log output đã lưu vào `conductor/tracks/<id>/qa/`
-- [ ] **Gitignore safe**: thư mục `qa/` không bị `.gitignore` chặn
+### 3. Trong luc thuc hien
+- Giu `conductor/state.md` ACTIVE notes cap nhat
+- Khi pause: ghi `conductor/tracks/[id]/SESSION.md`
+- Giu `CHANGELOG.md` va `tracks.md` khop nhau
 
-`status.py` sẽ **tự động warn** nếu chưa có thư mục `qa/`.
+### 4. Ket thuc session hoac ket thuc track
+1. Verify code theo workflow hien hanh
+2. Cap nhat status va `CHANGELOG.md` neu co doi status
+3. `python conductor/status.py done` → promote PIPELINE[0] len ACTIVE
+4. Dung `/update-knowledge` de luu learnings vao `docs/memory/`
 
-## 5. Cấu trúc Folder Track
-- `spec.md`: Yêu cầu chi tiết.
-- `plan.md`: Kế hoạch thực hiện.
-- `SESSION.md`: Trạng thái dở dang (chỉ dành cho Implementation).
-- `CHANGELOG.md`: Nhật ký thay đổi trạng thái.
+### 5. QA Gate checklist (bat buoc truoc khi transition → qa)
 
+Truoc khi chay `python conductor/status.py transition <id> qa`:
+- [ ] **Frontend build**: `npm run build` chay khong loi
+- [ ] **Backend runtime**: script QA chay duoc trong venv (`python qa_script.py`)
+- [ ] **Artifact saved**: file script + log output da luu vao `conductor/tracks/<id>/qa/`
+- [ ] **Gitignore safe**: thu muc `qa/` khong bi `.gitignore` chặn
+- [ ] **Contract gate** (track 014+): `make validate-contracts` pass (hoặc N/A nếu không có API changes)
+
+Neu thieu bat ky dieu kien nao tren → **KHONG duoc chuyen sang QA phase**.
+`status.py transition <id> qa` se warn neu chua co thu muc `qa/`.
+
+## Quy tac quan trong
+
+- Khong coi `.claude/docs/WORKFLOW_STANDARD.md` la source of truth nua; file do chi con la redirect
+- Khong ghi persistent memory ben ngoai `docs/memory/`
+- Luon follow state machine va DoD trong `conductor/workflow.md`
+
+## Lien ket voi cac skill khac
+
+- `/new-conversation` - load context tu `docs/memory/` va `conductor/tracks.md`
+- `/update-knowledge` - luu learnings va session state vao `docs/memory/`
+- `/module-workflow` - workflow module moi
+- `/refactor-workflow` - workflow refactor
+- `/done-checklist` - exit gate với contract validation (track 014+)

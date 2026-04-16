@@ -128,6 +128,19 @@ Anh muốn em cập nhật conductor/constitution.md không?
 
 **Nếu không có gì đủ điều kiện** → Bỏ qua, không mention.
 
+### 5.5. Contract Registry Sync (track 014+ — nếu track có API/DB changes)
+
+Bỏ qua nếu track không có `contract_delta.md`.
+
+Kiểm tra và cập nhật `docs/contracts/_registry.md`:
+- Version đã bump đúng chưa? (PATCH / MINOR / MAJOR theo semver)
+- Date đã cập nhật chưa? (ngày hôm nay)
+- Breaking changes đã được ghi vào Breaking Change Log chưa?
+
+Nếu chưa → cập nhật ngay trước khi lưu session.
+
+**Không cần** cập nhật `docs/contracts/api/ha_lac.yaml` ở đây — việc đó đã làm trong `planner-track` và `done-checklist`.
+
 ### 6. Update Track Transition Ledger
 
 Neu track co thay doi status trong session nay, ghi vao `CHANGELOG.md` trong folder track:

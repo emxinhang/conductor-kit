@@ -48,7 +48,7 @@ Xac dinh **profile** dua tren yeu cau cua ATu hoac track dang active:
 
 | Profile | Khi nao | Memory can load |
 |---------|---------|-----------------|
-| `planning` | Track moi, brainstorm, PRD | `00_active_context` + `04_tech_decisions_log` |
+| `planning` | Track moi, brainstorm, PRD | `00_active_context` + `04_tech_decisions_log` + `docs/contracts/_registry.md` (nếu track 014+) |
 | `backend` | Implement/debug backend | `00_active_context` + `02_backend_guidelines` |
 | `frontend` | Implement/debug frontend | `00_active_context` + `01_frontend_guidelines` |
 | `fullstack` | Track co ca BE+FE | `00_active_context` + `01` + `02` |
@@ -119,6 +119,7 @@ Bao cao cho ATu:
 | `.agents/workflows/atu-style.md` | ❌ Manual | Quy chuan giao tiep |
 | `conductor/tracks.md` | ❌ Khi can | Full track list |
 | `docs/codebase-map.md` | ❌ backend/frontend/fullstack/debugging | Feature→Files map — doc truoc khi Grep/Read |
+| `docs/contracts/_registry.md` | ❌ Planning (014+) | Index contracts + breaking changes |
 
 ## Vi du output
 

@@ -2,804 +2,29 @@
   "version": "3.5.0",
   "files": [
     {
-      "template": "templates/.agent/workflows/atu-style.md",
-      "target": ".agent/workflows/atu-style.md",
-      "render": true
-    },
-    {
-      "template": "templates/.agent/workflows/new-conversation.md",
-      "target": ".agent/workflows/new-conversation.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agent/workflows/update-knowleadge.md",
-      "target": ".agent/workflows/update-knowleadge.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/atu-conductor/SKILL.md",
-      "target": ".agents/skills/atu-conductor/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/atu-handoff/SKILL.md",
-      "target": ".agents/skills/atu-handoff/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/atu-new-conversation/SKILL.md",
-      "target": ".agents/skills/atu-new-conversation/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/atu-update-knowledge/SKILL.md",
-      "target": ".agents/skills/atu-update-knowledge/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/brainstorm-track/SKILL.md",
-      "target": ".agents/skills/brainstorm-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/deploy-track/SKILL.md",
-      "target": ".agents/skills/deploy-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/frontend-standard-v1/SKILL.md",
-      "target": ".agents/skills/frontend-standard-v1/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/frontend-standard-v1/references/api-pattern.md",
-      "target": ".agents/skills/frontend-standard-v1/references/api-pattern.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/frontend-standard-v1/references/ui-layout.md",
-      "target": ".agents/skills/frontend-standard-v1/references/ui-layout.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/module-workflow/SKILL.md",
-      "target": ".agents/skills/module-workflow/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/module-workflow/scripts/init_track.py",
-      "target": ".agents/skills/module-workflow/scripts/init_track.py",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/planner-track/SKILL.md",
-      "target": ".agents/skills/planner-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/qa-verify-expert/SKILL.md",
-      "target": ".agents/skills/qa-verify-expert/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/refactor-workflow/SKILL.md",
-      "target": ".agents/skills/refactor-workflow/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/refactor-workflow/scripts/init_refactor_track.py",
-      "target": ".agents/skills/refactor-workflow/scripts/init_refactor_track.py",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/skills/zero-loop-dev/SKILL.md",
-      "target": ".agents/skills/zero-loop-dev/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.agents/workflows/atu-style.md",
-      "target": ".agents/workflows/atu-style.md",
-      "render": true
-    },
-    {
-      "template": "templates/.claude/CLAUDE.md",
-      "target": ".claude/CLAUDE.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/docs/WORKFLOW_STANDARD.md",
-      "target": ".claude/docs/WORKFLOW_STANDARD.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/README.md",
-      "target": ".claude/skills/README.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/SKILLS_CATALOG_VI.md",
-      "target": ".claude/skills/SKILLS_CATALOG_VI.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/alembic-workflow/SKILL.md",
-      "target": ".claude/skills/alembic-workflow/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/atu-compact/skill.md",
-      "target": ".claude/skills/atu-compact/skill.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/atu-hub-components/skill.md",
-      "target": ".claude/skills/atu-hub-components/skill.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/atu-react-component/skill.md",
-      "target": ".claude/skills/atu-react-component/skill.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/atu-react-component/skillConfig.json",
-      "target": ".claude/skills/atu-react-component/skillConfig.json",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/atu-summary-status/skill.md",
-      "target": ".claude/skills/atu-summary-status/skill.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/atu-typo-standard/skill.md",
-      "target": ".claude/skills/atu-typo-standard/skill.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-architect/SKILL.md",
-      "target": ".claude/skills/backend-architect/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/SKILL.md",
-      "target": ".claude/skills/backend-development/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-api-design.md",
-      "target": ".claude/skills/backend-development/references/backend-api-design.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-architecture.md",
-      "target": ".claude/skills/backend-development/references/backend-architecture.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-authentication.md",
-      "target": ".claude/skills/backend-development/references/backend-authentication.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-code-quality.md",
-      "target": ".claude/skills/backend-development/references/backend-code-quality.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-debugging.md",
-      "target": ".claude/skills/backend-development/references/backend-debugging.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-devops.md",
-      "target": ".claude/skills/backend-development/references/backend-devops.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-mindset.md",
-      "target": ".claude/skills/backend-development/references/backend-mindset.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-performance.md",
-      "target": ".claude/skills/backend-development/references/backend-performance.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-security.md",
-      "target": ".claude/skills/backend-development/references/backend-security.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-technologies.md",
-      "target": ".claude/skills/backend-development/references/backend-technologies.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/backend-development/references/backend-testing.md",
-      "target": ".claude/skills/backend-development/references/backend-testing.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/brainstorm-track/SKILL.md",
-      "target": ".claude/skills/brainstorm-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/claude-code/SKILL.md",
-      "target": ".claude/skills/claude-code/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/claude-code/llms.txt",
-      "target": ".claude/skills/claude-code/llms.txt",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/cloudflare-r2/SKILL.md",
-      "target": ".claude/skills/cloudflare-r2/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/cloudflare-r2/references/api-reference.md",
-      "target": ".claude/skills/cloudflare-r2/references/api-reference.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/cloudflare-r2/references/pricing-guide.md",
-      "target": ".claude/skills/cloudflare-r2/references/pricing-guide.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/cloudflare-r2/references/sdk-examples.md",
-      "target": ".claude/skills/cloudflare-r2/references/sdk-examples.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/cloudflare-r2/references/workers-patterns.md",
-      "target": ".claude/skills/cloudflare-r2/references/workers-patterns.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/code-review/SKILL.md",
-      "target": ".claude/skills/code-review/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/code-review/references/code-review-reception.md",
-      "target": ".claude/skills/code-review/references/code-review-reception.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/code-review/references/requesting-code-review.md",
-      "target": ".claude/skills/code-review/references/requesting-code-review.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/code-review/references/verification-before-completion.md",
-      "target": ".claude/skills/code-review/references/verification-before-completion.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/collision-zone-thinking/SKILL.md",
-      "target": ".claude/skills/collision-zone-thinking/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/conductor/SKILL.md",
-      "target": ".claude/skills/conductor/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-defense-in-depth/SKILL.md",
-      "target": ".claude/skills/debugging-defense-in-depth/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-root-cause-tracing/SKILL.md",
-      "target": ".claude/skills/debugging-root-cause-tracing/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-root-cause-tracing/find-polluter.sh",
-      "target": ".claude/skills/debugging-root-cause-tracing/find-polluter.sh",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-systematic-debugging/CREATION-LOG.md",
-      "target": ".claude/skills/debugging-systematic-debugging/CREATION-LOG.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-systematic-debugging/SKILL.md",
-      "target": ".claude/skills/debugging-systematic-debugging/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-systematic-debugging/test-academic.md",
-      "target": ".claude/skills/debugging-systematic-debugging/test-academic.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-systematic-debugging/test-pressure-1.md",
-      "target": ".claude/skills/debugging-systematic-debugging/test-pressure-1.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-systematic-debugging/test-pressure-2.md",
-      "target": ".claude/skills/debugging-systematic-debugging/test-pressure-2.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-systematic-debugging/test-pressure-3.md",
-      "target": ".claude/skills/debugging-systematic-debugging/test-pressure-3.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/debugging-verification-before-completion/SKILL.md",
-      "target": ".claude/skills/debugging-verification-before-completion/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/deploy-track/SKILL.md",
-      "target": ".claude/skills/deploy-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/docs-seeker/SKILL.md",
-      "target": ".claude/skills/docs-seeker/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/docs-seeker/WORKFLOWS.md",
-      "target": ".claude/skills/docs-seeker/WORKFLOWS.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/docs-seeker/references/best-practices.md",
-      "target": ".claude/skills/docs-seeker/references/best-practices.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/docs-seeker/references/documentation-sources.md",
-      "target": ".claude/skills/docs-seeker/references/documentation-sources.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/docs-seeker/references/error-handling.md",
-      "target": ".claude/skills/docs-seeker/references/error-handling.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/docs-seeker/references/limitations.md",
-      "target": ".claude/skills/docs-seeker/references/limitations.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/docs-seeker/references/performance.md",
-      "target": ".claude/skills/docs-seeker/references/performance.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/docs-seeker/references/tool-selection.md",
-      "target": ".claude/skills/docs-seeker/references/tool-selection.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/done-checklist/SKILL.md",
-      "target": ".claude/skills/done-checklist/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-architect/SKILL.md",
-      "target": ".claude/skills/frontend-architect/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-design/SKILL.md",
-      "target": ".claude/skills/frontend-design/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/SKILL.md",
-      "target": ".claude/skills/frontend-development/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/common-patterns.md",
-      "target": ".claude/skills/frontend-development/resources/common-patterns.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/complete-examples.md",
-      "target": ".claude/skills/frontend-development/resources/complete-examples.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/component-patterns.md",
-      "target": ".claude/skills/frontend-development/resources/component-patterns.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/data-fetching.md",
-      "target": ".claude/skills/frontend-development/resources/data-fetching.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/file-organization.md",
-      "target": ".claude/skills/frontend-development/resources/file-organization.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/loading-and-error-states.md",
-      "target": ".claude/skills/frontend-development/resources/loading-and-error-states.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/performance.md",
-      "target": ".claude/skills/frontend-development/resources/performance.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/routing-guide.md",
-      "target": ".claude/skills/frontend-development/resources/routing-guide.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/styling-guide.md",
-      "target": ".claude/skills/frontend-development/resources/styling-guide.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-development/resources/typescript-standards.md",
-      "target": ".claude/skills/frontend-development/resources/typescript-standards.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-qa-gatekeeper/SKILL.md",
-      "target": ".claude/skills/frontend-qa-gatekeeper/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-standard-v1/SKILL.md",
-      "target": ".claude/skills/frontend-standard-v1/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-standard-v1/references/api-pattern.md",
-      "target": ".claude/skills/frontend-standard-v1/references/api-pattern.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/frontend-standard-v1/references/ui-layout.md",
-      "target": ".claude/skills/frontend-standard-v1/references/ui-layout.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/handoff/SKILL.md",
-      "target": ".claude/skills/handoff/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/inversion-exercise/SKILL.md",
-      "target": ".claude/skills/inversion-exercise/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/learning-guide/SKILL.md",
-      "target": ".claude/skills/learning-guide/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/LICENSE.txt",
-      "target": ".claude/skills/mcp-builder/LICENSE.txt",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/SKILL.md",
-      "target": ".claude/skills/mcp-builder/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/reference/evaluation.md",
-      "target": ".claude/skills/mcp-builder/reference/evaluation.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/reference/mcp_best_practices.md",
-      "target": ".claude/skills/mcp-builder/reference/mcp_best_practices.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/reference/node_mcp_server.md",
-      "target": ".claude/skills/mcp-builder/reference/node_mcp_server.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/reference/python_mcp_server.md",
-      "target": ".claude/skills/mcp-builder/reference/python_mcp_server.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/scripts/connections.py",
-      "target": ".claude/skills/mcp-builder/scripts/connections.py",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/scripts/evaluation.py",
-      "target": ".claude/skills/mcp-builder/scripts/evaluation.py",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/scripts/example_evaluation.xml",
-      "target": ".claude/skills/mcp-builder/scripts/example_evaluation.xml",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/mcp-builder/scripts/requirements.txt",
-      "target": ".claude/skills/mcp-builder/scripts/requirements.txt",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/meta-pattern-recognition/SKILL.md",
-      "target": ".claude/skills/meta-pattern-recognition/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/module-workflow/SKILL.md",
-      "target": ".claude/skills/module-workflow/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/module-workflow/scripts/init_track.py",
-      "target": ".claude/skills/module-workflow/scripts/init_track.py",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/new-conversation/SKILL.md",
-      "target": ".claude/skills/new-conversation/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/pdf-generation/SKILL.md",
-      "target": ".claude/skills/pdf-generation/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/performance-engineer/SKILL.md",
-      "target": ".claude/skills/performance-engineer/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/planner-track/SKILL.md",
-      "target": ".claude/skills/planner-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/postgresql-psql/EXPLORATION-REPORT.md",
-      "target": ".claude/skills/postgresql-psql/EXPLORATION-REPORT.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/postgresql-psql/README.md",
-      "target": ".claude/skills/postgresql-psql/README.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/postgresql-psql/SKILL.md",
-      "target": ".claude/skills/postgresql-psql/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/qa-verify-expert/SKILL.md",
-      "target": ".claude/skills/qa-verify-expert/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/red-team-reviewer/SKILL.md",
-      "target": ".claude/skills/red-team-reviewer/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/refactor-workflow/SKILL.md",
-      "target": ".claude/skills/refactor-workflow/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/refactor-workflow/scripts/init_refactor_track.py",
-      "target": ".claude/skills/refactor-workflow/scripts/init_refactor_track.py",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/refactoring-expert/SKILL.md",
-      "target": ".claude/skills/refactoring-expert/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/repomix/SKILL.md",
-      "target": ".claude/skills/repomix/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/requirements-analyst/SKILL.md",
-      "target": ".claude/skills/requirements-analyst/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/review-plan/SKILL.md",
-      "target": ".claude/skills/review-plan/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/scale-game/SKILL.md",
-      "target": ".claude/skills/scale-game/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/security-engineer/SKILL.md",
-      "target": ".claude/skills/security-engineer/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/shadcn-ui/SKILL.md",
-      "target": ".claude/skills/shadcn-ui/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/simplification-cascades/SKILL.md",
-      "target": ".claude/skills/simplification-cascades/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/skill-creator/LICENSE.txt",
-      "target": ".claude/skills/skill-creator/LICENSE.txt",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/skill-creator/SKILL.md",
-      "target": ".claude/skills/skill-creator/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/skill-creator/scripts/init_skill.py",
-      "target": ".claude/skills/skill-creator/scripts/init_skill.py",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/skill-creator/scripts/package_skill.py",
-      "target": ".claude/skills/skill-creator/scripts/package_skill.py",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/skill-creator/scripts/quick_validate.py",
-      "target": ".claude/skills/skill-creator/scripts/quick_validate.py",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/system-architect/SKILL.md",
-      "target": ".claude/skills/system-architect/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/systematic-debugging/CREATION-LOG.md",
-      "target": ".claude/skills/systematic-debugging/CREATION-LOG.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/systematic-debugging/SKILL.md",
-      "target": ".claude/skills/systematic-debugging/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/systematic-debugging/test-academic.md",
-      "target": ".claude/skills/systematic-debugging/test-academic.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/systematic-debugging/test-pressure-1.md",
-      "target": ".claude/skills/systematic-debugging/test-pressure-1.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/systematic-debugging/test-pressure-2.md",
-      "target": ".claude/skills/systematic-debugging/test-pressure-2.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/systematic-debugging/test-pressure-3.md",
-      "target": ".claude/skills/systematic-debugging/test-pressure-3.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/tailwindcss/SKILL.md",
-      "target": ".claude/skills/tailwindcss/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/tech-stack-researcher/SKILL.md",
-      "target": ".claude/skills/tech-stack-researcher/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/technical-writer/SKILL.md",
-      "target": ".claude/skills/technical-writer/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/update-knowledge/SKILL.md",
-      "target": ".claude/skills/update-knowledge/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/verification-before-completion/SKILL.md",
-      "target": ".claude/skills/verification-before-completion/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/when-stuck/SKILL.md",
-      "target": ".claude/skills/when-stuck/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.claude/skills/zero-loop-dev/SKILL.md",
-      "target": ".claude/skills/zero-loop-dev/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/brainstorm-track/SKILL.md",
-      "target": ".codex/skills/brainstorm-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/conductor/SKILL.md",
-      "target": ".codex/skills/conductor/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/deploy-track/SKILL.md",
-      "target": ".codex/skills/deploy-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/handoff/SKILL.md",
-      "target": ".codex/skills/handoff/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/module-workflow/SKILL.md",
-      "target": ".codex/skills/module-workflow/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/new-conversation/SKILL.md",
-      "target": ".codex/skills/new-conversation/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/planner-track/SKILL.md",
-      "target": ".codex/skills/planner-track/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/refactor-workflow/SKILL.md",
-      "target": ".codex/skills/refactor-workflow/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/update-knowledge/SKILL.md",
-      "target": ".codex/skills/update-knowledge/SKILL.md",
-      "render": false
-    },
-    {
-      "template": "templates/.codex/skills/zero-loop-dev/SKILL.md",
-      "target": ".codex/skills/zero-loop-dev/SKILL.md",
+      "template": "templates/conductor/workflow.md",
+      "target": "conductor/workflow.md",
       "render": false
     },
     {
       "template": "templates/conductor/CONDUCTOR_GUIDE.md",
       "target": "conductor/CONDUCTOR_GUIDE.md",
       "render": false
+    },
+    {
+      "template": "templates/conductor/status.py",
+      "target": "conductor/status.py",
+      "render": false
+    },
+    {
+      "template": "templates/conductor/state.md",
+      "target": "conductor/state.md",
+      "render": true
+    },
+    {
+      "template": "templates/conductor/tracks.md",
+      "target": "conductor/tracks.md",
+      "render": true
     },
     {
       "template": "templates/conductor/code_styleguides/general.md",
@@ -817,43 +42,8 @@
       "render": false
     },
     {
-      "template": "templates/conductor/constitution.md",
-      "target": "conductor/constitution.md",
-      "render": false
-    },
-    {
-      "template": "templates/conductor/state.md",
-      "target": "conductor/state.md",
-      "render": true
-    },
-    {
-      "template": "templates/conductor/status.py",
-      "target": "conductor/status.py",
-      "render": false
-    },
-    {
-      "template": "templates/conductor/track-templates/SPEC_TEMPLATE.md",
-      "target": "conductor/track-SPEC_TEMPLATE.md",
-      "render": false
-    },
-    {
-      "template": "templates/conductor/track-templates/TASKS_TEMPLATE.md",
-      "target": "conductor/track-TASKS_TEMPLATE.md",
-      "render": false
-    },
-    {
-      "template": "templates/conductor/tracks.md",
-      "target": "conductor/tracks.md",
-      "render": true
-    },
-    {
-      "template": "templates/conductor/workflow.md",
-      "target": "conductor/workflow.md",
-      "render": false
-    },
-    {
-      "template": "templates/docs/WORKFLOW_STANDARD.md",
-      "target": "docs/WORKFLOW_STANDARD.md",
+      "template": "templates/docs/memory/MEMORY.md",
+      "target": "docs/memory/MEMORY.md",
       "render": false
     },
     {
@@ -882,28 +72,258 @@
       "render": true
     },
     {
-      "template": "templates/docs/memory/MEMORY.md",
-      "target": "docs/memory/MEMORY.md",
-      "render": false
-    },
-    {
-      "template": "templates/docs/memory/session_save.md",
-      "target": "docs/memory/session_save.md",
-      "render": false
-    },
-    {
       "template": "templates/docs/memory/session_save_cs.md",
       "target": "docs/memory/session_save_cs.md",
       "render": true
     },
     {
-      "template": "templates/docs/project_memory.md",
-      "target": "docs/project_memory.md",
+      "template": "templates/.agents/workflows/atu-style.md",
+      "target": ".agents/workflows/atu-style.md",
+      "render": true
+    },
+    {
+      "template": "templates/.agents/skills/atu-conductor/SKILL.md",
+      "target": ".agents/skills/atu-conductor/SKILL.md",
       "render": false
     },
     {
-      "template": "templates/memory/MEMORY.md",
-      "target": "memory/MEMORY.md",
+      "template": "templates/.agents/skills/atu-new-conversation/SKILL.md",
+      "target": ".agents/skills/atu-new-conversation/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/atu-update-knowledge/SKILL.md",
+      "target": ".agents/skills/atu-update-knowledge/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/atu-handoff/SKILL.md",
+      "target": ".agents/skills/atu-handoff/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/brainstorm-track/SKILL.md",
+      "target": ".agents/skills/brainstorm-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/planner-track/SKILL.md",
+      "target": ".agents/skills/planner-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/module-workflow/SKILL.md",
+      "target": ".agents/skills/module-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/module-workflow/scripts/init_track.py",
+      "target": ".agents/skills/module-workflow/scripts/init_track.py",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/refactor-workflow/SKILL.md",
+      "target": ".agents/skills/refactor-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/refactor-workflow/scripts/init_refactor_track.py",
+      "target": ".agents/skills/refactor-workflow/scripts/init_refactor_track.py",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/qa-verify-expert/SKILL.md",
+      "target": ".agents/skills/qa-verify-expert/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/frontend-standard-v1/SKILL.md",
+      "target": ".agents/skills/frontend-standard-v1/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/frontend-standard-v1/references/api-pattern.md",
+      "target": ".agents/skills/frontend-standard-v1/references/api-pattern.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/frontend-standard-v1/references/ui-layout.md",
+      "target": ".agents/skills/frontend-standard-v1/references/ui-layout.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/conductor/SKILL.md",
+      "target": ".claude/skills/conductor/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/new-conversation/SKILL.md",
+      "target": ".claude/skills/new-conversation/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/update-knowledge/SKILL.md",
+      "target": ".claude/skills/update-knowledge/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/handoff/SKILL.md",
+      "target": ".claude/skills/handoff/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/brainstorm-track/SKILL.md",
+      "target": ".claude/skills/brainstorm-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/planner-track/SKILL.md",
+      "target": ".claude/skills/planner-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/module-workflow/SKILL.md",
+      "target": ".claude/skills/module-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/module-workflow/scripts/init_track.py",
+      "target": ".claude/skills/module-workflow/scripts/init_track.py",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/refactor-workflow/SKILL.md",
+      "target": ".claude/skills/refactor-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/refactor-workflow/scripts/init_refactor_track.py",
+      "target": ".claude/skills/refactor-workflow/scripts/init_refactor_track.py",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/qa-verify-expert/SKILL.md",
+      "target": ".claude/skills/qa-verify-expert/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/frontend-standard-v1/SKILL.md",
+      "target": ".claude/skills/frontend-standard-v1/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/frontend-standard-v1/references/api-pattern.md",
+      "target": ".claude/skills/frontend-standard-v1/references/api-pattern.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/frontend-standard-v1/references/ui-layout.md",
+      "target": ".claude/skills/frontend-standard-v1/references/ui-layout.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/zero-loop-dev/SKILL.md",
+      "target": ".claude/skills/zero-loop-dev/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/deploy-track/SKILL.md",
+      "target": ".claude/skills/deploy-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.claude/skills/done-checklist/SKILL.md",
+      "target": ".claude/skills/done-checklist/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/docs/contracts/FRAMEWORK.md",
+      "target": "docs/contracts/FRAMEWORK.md",
+      "render": false
+    },
+    {
+      "template": "templates/docs/contracts/_registry.md",
+      "target": "docs/contracts/_registry.md",
+      "render": false
+    },
+    {
+      "template": "templates/docs/skill-update-guide.md",
+      "target": "docs/skill-update-guide.md",
+      "render": false
+    },
+    {
+      "template": "templates/scripts/contracts/capture.py",
+      "target": "scripts/contracts/capture.py",
+      "render": false
+    },
+    {
+      "template": "templates/scripts/contracts/validate.py",
+      "target": "scripts/contracts/validate.py",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/conductor/SKILL.md",
+      "target": ".codex/skills/conductor/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/new-conversation/SKILL.md",
+      "target": ".codex/skills/new-conversation/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/update-knowledge/SKILL.md",
+      "target": ".codex/skills/update-knowledge/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/handoff/SKILL.md",
+      "target": ".codex/skills/handoff/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/brainstorm-track/SKILL.md",
+      "target": ".codex/skills/brainstorm-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/planner-track/SKILL.md",
+      "target": ".codex/skills/planner-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/module-workflow/SKILL.md",
+      "target": ".codex/skills/module-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/refactor-workflow/SKILL.md",
+      "target": ".codex/skills/refactor-workflow/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/zero-loop-dev/SKILL.md",
+      "target": ".codex/skills/zero-loop-dev/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.codex/skills/deploy-track/SKILL.md",
+      "target": ".codex/skills/deploy-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/zero-loop-dev/SKILL.md",
+      "target": ".agents/skills/zero-loop-dev/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/deploy-track/SKILL.md",
+      "target": ".agents/skills/deploy-track/SKILL.md",
+      "render": false
+    },
+    {
+      "template": "templates/.agents/skills/done-checklist/SKILL.md",
+      "target": ".agents/skills/done-checklist/SKILL.md",
       "render": false
     }
   ]

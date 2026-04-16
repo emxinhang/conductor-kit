@@ -83,6 +83,15 @@ Nếu Codex/Cursor đã gen boilerplate:
 - Chạy `npm run build` tại `/frontend` → nếu có TypeScript errors → fix trước
 - Chạy `python .agent/skills/zero-loop-dev/scripts/verify_integrity.py` → nếu integrity fail → fix trước
 
+Nếu track có `contract_delta.md` (track 014+):
+```bash
+# Verify OpenAPI spec đã được update trước khi code
+make validate-contracts
+# Nếu drift → DỪNG, báo ATu update docs/contracts/api/ha_lac.yaml trước
+```
+- Types generated? Kiểm tra `frontend/src/types/_generated/` tồn tại và không stale
+- Nếu chưa sync → chạy `make sync-types` trước khi bắt đầu task frontend nào
+
 **Mục tiêu**: Bắt đầu từ codebase sạch, không có inherited bugs.
 
 ## Bước 3: Execution — Zero-Loop V3
@@ -107,6 +116,7 @@ Khi hoàn tất tất cả tasks (hoặc một phase):
 
 Tasks done: [N]/[N]
 Evidence:
+  - Contract: [make validate-contracts → OK / N/A]
   - Backend: [endpoint] → 200 OK [snippet]
   - Frontend: Build pass, 0 errors
 

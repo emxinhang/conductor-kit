@@ -19,10 +19,16 @@ Skill này (đóng vai trò như một Technical Lead kết hợp Technical Writ
 
 1. **Đọc Spec/PRD**: Đọc hiểu yêu cầu từ `spec.md` hoặc `PRD.md` trong folder track.
 2. **Constitution Gate**: Đọc `conductor/constitution.md` — verify plan không vi phạm invariants. Nếu vi phạm → flag cho ATu trước khi tiếp tục.
-3. **Search Tools**: Bắt buộc sử dụng công cụ tìm kiếm (`grep_search`, `find_by_name`, `view_file`) để quét các file codebase hiện tại.
+3. **Contract Delta Check**: Nếu track có `contract_delta.md` trong folder track (track 014+):
+   - Đọc `contract_delta.md` để hiểu API/DB changes
+   - Xác nhận: breaking changes nào cần migration?
+   - Update `docs/contracts/api/ha_lac.yaml` nếu có endpoint mới/sửa (bump version theo semver)
+   - Chạy `make sync-types` để generate TypeScript types mới
+   - Nếu breaking change: flag cho ATu trước khi tiếp tục
+4. **Search Tools**: Bắt buộc sử dụng công cụ tìm kiếm (`grep_search`, `find_by_name`, `view_file`) để quét các file codebase hiện tại.
     - Tìm hiểu System Entity Models hiện tại (database schema/SQL files, Pydantic/SQLAlchemy models).
     - Tìm Frontend Components, API endpoints hoặc Interfaces đã có liên quan.
-4. **Verify Dependencies**: Phân tích xem có thư viện nào cần cài thêm, cấu hình nào cần cập nhật không.
+5. **Verify Dependencies**: Phân tích xem có thư viện nào cần cài thêm, cấu hình nào cần cập nhật không.
 
 *Lưu ý: Tuyệt đối không tự suy diễn kiến trúc. Khớp nối với thực tế codebase.*
 
@@ -50,6 +56,8 @@ conductor/tracks/<track-id>/
 └── tasks.md                  # Task list có markers [P]/[SEQ]/[US1]/[CHK]
 ```
 
+> **Contract-First note (track 014+)**: Nếu track có API changes, `docs/contracts/api/ha_lac.yaml` và `frontend/src/types/_generated/` cũng phải được cập nhật trước khi bắt đầu dev phase.
+
 ## Templates
 
 ### Implementation Plan Template
@@ -70,6 +78,7 @@ tasks.md phải có:
 1. **Tập trung vào "How"**: Bỏ qua các câu hỏi "Why" (do `brainstorm-track` đã làm). Focus hoàn toàn vào kỹ thuật.
 2. **Liệt kê file cụ thể**: Thay vì "Sửa frontend auth", phải ghi rõ "Cập nhật `frontend/src/features/auth/AuthContext.tsx`".
 3. **Giới hạn số bước**: Plan tối ưu trong khoảng 300 dòng và chia phase rõ ràng (Backend, Frontend, QA).
+4. **Contract trước code**: Nếu track có `contract_delta.md`, cập nhật OpenAPI spec TRƯỚC khi viết implementation plan chi tiết. Implementation plan phải reference đúng field names từ contract.
 
 ## Example Usage
 

@@ -44,13 +44,29 @@ Sử dụng template `templates/PRD_TEMPLATE.md` để tạo file `PRD.md` trong
 
 **Output**: Hướng kiến trúc giải pháp chuẩn bị cho `planner-track`.
 
+### Phase 4: Contract Delta (Track 014+ — Design-First)
+
+> Áp dụng khi track có thay đổi API hoặc DB schema. Bỏ qua nếu track là internal/refactor không có API mới.
+
+Tạo file `contract_delta.md` trong folder track với nội dung:
+
+1. **API Changes**: Liệt kê endpoints mới/sửa/xóa — format: `METHOD /path` + request/response shape sơ bộ
+2. **DB Schema Changes**: Liệt kê tables/columns mới nếu có migration
+3. **Breaking Changes**: Flag rõ nếu có (field đổi type, path đổi, field bị xóa)
+4. **Downstream impact**: Track nào phụ thuộc vào contract này?
+
+Template: `conductor/tracks/<id>/contract_delta.md` (xem ví dụ tại `conductor/tracks/014-ha-lac-data-enrichment/contract_delta.md`)
+
+**Output**: `contract_delta.md` trong folder track.
+
 ## Output Location
 
 Tất cả files sẽ được tạo trong folder track hiện tại:
 ```
 conductor/tracks/<track-id>/
 ├── PRD.md                    # Product Requirements Document
-└── spec.md                   # Đặc tả kỹ thuật có cấu trúc (FR-xxx, SC-xxx, Given/When/Then)
+├── spec.md                   # Đặc tả kỹ thuật có cấu trúc (FR-xxx, SC-xxx, Given/When/Then)
+└── contract_delta.md         # Contract delta (track 014+ nếu có API/DB changes)
 ```
 
 ## Templates
@@ -111,3 +127,5 @@ Thay `<track-id>` bằng ID thực tế (e.g., `112`). Lệnh này tự động:
 - Cập nhật badge trong `conductor/tracks.md` → `[📅 Planned]`
 - Cập nhật `conductor/state.md` nếu đây là ACTIVE track
 - Ghi lịch sử vào `conductor/tracks/<id>/CHANGELOG.md`
+
+Nếu track có API/DB changes (014+): kiểm tra `contract_delta.md` đã được tạo trong folder track.
