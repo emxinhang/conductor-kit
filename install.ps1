@@ -19,7 +19,7 @@ if (-not (Test-Path $TargetDir)) {
 }
 
 $targetRoot = Resolve-Path $TargetDir
-$manifest = Get-Content $manifestPath -Raw | ConvertFrom-Json
+$manifest = Get-Content $manifestPath -Raw -Encoding UTF8 | ConvertFrom-Json
 
 if ([string]::IsNullOrWhiteSpace($ConfigPath)) {
     $candidates = @(
@@ -41,7 +41,7 @@ if ([string]::IsNullOrWhiteSpace($ConfigPath) -or -not (Test-Path $ConfigPath)) 
     $ConfigPath = $exampleConfigPath
 }
 
-$config = Get-Content $ConfigPath -Raw | ConvertFrom-Json
+$config = Get-Content $ConfigPath -Raw -Encoding UTF8 | ConvertFrom-Json
 $today = Get-Date -Format "yyyy-MM-dd"
 $timestamp = Get-Date -Format "yyyyMMdd-HHmmss"
 
@@ -95,13 +95,18 @@ foreach ($entry in $manifest.files) {
         Copy-Item -Force $targetPath $backupPath
     }
 
-    $content = Get-Content $sourcePath -Raw
+    $content = Get-Content $sourcePath -Raw -Encoding UTF8
     if ($entry.render) {
         $content = Render-Template -Content $content -Map $tokens
     }
 
-    Set-Content -Path $targetPath -Value $content -Encoding UTF8
-    $installedFiles += [string]$entry.target
+    try {
+        $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+        [System.IO.File]::WriteAllText($targetPath, $content, $utf8NoBom)
+        $installedFiles += [string]$entry.target
+    } catch {
+        Write-Host "Failed to write $($entry.target): $($_.Exception.Message)" -ForegroundColor Red
+    }
 }
 
 $metadataDir = Join-Path $targetRoot ".conductor-kit"
@@ -117,7 +122,8 @@ $metadata = [ordered]@{
     files = $installedFiles
 }
 
-$metadata | ConvertTo-Json -Depth 5 | Set-Content -Path (Join-Path $metadataDir "installed.json") -Encoding UTF8
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+[System.IO.File]::WriteAllText((Join-Path $metadataDir "installed.json"), ($metadata | ConvertTo-Json -Depth 5), $utf8NoBom)
 
 Write-Host "Conductor kit installed." -ForegroundColor Green
 Write-Host "Version: $($manifest.version)"

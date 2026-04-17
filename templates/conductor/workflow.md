@@ -1,4 +1,4 @@
-﻿# Conductor Workflow
+# Conductor Workflow
 
 This file is the canonical workflow reference for the repository.
 
