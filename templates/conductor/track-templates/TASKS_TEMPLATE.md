@@ -5,6 +5,17 @@
 
 ---
 
+## Task Granularity Rule
+
+**Mỗi task phải hoàn thành trong ≤ 5 phút.** Nếu estimate > 5 phút → bắt buộc chia nhỏ thành sub-tasks trước khi bắt đầu code. Task quá lớn = context drift, khó review, khó rollback.
+
+Checklist trước khi lock plan:
+- [ ] Mỗi task có exactly 1 file target hoặc 1 action rõ ràng
+- [ ] Task có verification step cụ thể (không phải "check xem ổn không")
+- [ ] Không có task nào kiểu "implement feature X" — phải là "create file Y với function Z"
+
+---
+
 ## Legend
 
 | Marker | Meaning |
